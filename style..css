@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+    font-family: 'inter', sans-serif;
+}
+
+.container {
+    width: 1120px;
+    margin: auto;
+
+}
+
+ul{
+    list-style: none;
+}
+
+.d-flex{
+    display: flex;
+    align-items: center;
+}
+
+.justify-content-between{
+    justify-content: space-between;
+}

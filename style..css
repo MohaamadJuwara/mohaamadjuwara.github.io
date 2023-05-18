@@ -62,7 +62,7 @@ ul.nav-menu li:last-child{
 
 .home-text h2{
     font-size: 30px;
-    font-weight: 500px;
+    font-weight: 500;
     padding: 20px 0;
     color: #333333;
 
@@ -114,5 +114,12 @@ ul.nav-menu li:last-child{
     padding: 15px 30px;
     font-weight: 600;
     border-radius: 5px;
+}
+
+.home-text h2 span{
+    padding-left: 8px;
+    border-right: 3px solid;
+    font-size: 30px;
+    font-weight: 500;
 }
 

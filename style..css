@@ -143,7 +143,7 @@ ul.nav-menu li:last-child{
     position: relative;
 }
 
-.home-img-border::after{
+.border-img::after{
     content: '';
     width: 1800px;
     position: absolute;

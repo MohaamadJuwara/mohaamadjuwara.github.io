@@ -1,0 +1,128 @@
+body {
+    background-color: #EBCFB2;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.tile {
+    background-color: #F7996E;
+    cursor: pointer;
+}
+
+.active {
+    background-color: #97DB4F;
+    background-image: url(/img/jellymol.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+:root{
+    grid-column: 3;
+    grid-row: 3;
+    background-image: url('../img/jellymol.jpg');
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, [col-start] 1fr);
+    grid-template-areas:
+        "hd hd hd hd hd hd hd hd hd hd hd hd "
+        ". . . . score score score score . . . ."
+        ". . . . bp1 .  bp2 .  . . . ."
+        ". . . . bp1 .  bp2 . . . . ."
+        ". . . . iv1  .  iv2  . .  . . . "
+        ". . . . iv1  vb  iv2  . .  . . . "
+        ". . . . iv1  .  iv2  . . .  . . "
+        ". . . . main main main main . . . ."
+
+    ;
+}
+
+
+.header {
+    grid-area: hd;
+    text-align: center;
+
+
+}
+
+.invoer1 {
+    grid-area: iv1;
+    text-align: center;
+
+}
+.invoer2 {
+    grid-area: iv2;
+    text-align: center;
+
+}
+.invoer-button{
+    grid-area: vb;
+    text-align: center;
+}
+
+.set-time-button{
+    text-align: center;
+    background-color: #97DB4F;
+}
+
+.score {
+    grid-area: score;
+
+    /* border-radius: 20px; */
+    height: 100px;
+    width: 540px;
+    text-align: center;
+    background-color: #6ef773;
+    padding: 10px;
+
+}
+
+.button-panel {
+    grid-area: bp1;
+     margin-top: 20px;
+     
+    /*margin-bottom: 20px; */
+    text-align: center;
+}
+
+.button-pane2 {
+    grid-area: bp2;
+     margin-top: 20px;
+     
+    /*margin-bottom: 20px; */
+    text-align: center;
+}
+
+.tile-wrapper {
+    display: grid;
+    grid-area: main;
+    gap: 10px;
+    grid-template-columns: repeat(5, 100px);
+    grid-template-rows: repeat(5, 100px);
+}
+
+.invoer1 {
+    margin: 20px;
+    border: 2px solid rgb(34, 0, 128);
+    text-align: center;
+    background-color: #6ef7a9;
+    text-shadow: #EBCFB2;
+    position: center;
+}
+
+.invoer2 {
+    margin: 20px;
+    border: 2px solid rgb(34, 0, 128);
+    text-align: center;
+    background-color: #6ef7a9;
+    text-shadow: #EBCFB2;
+    position: center;
+}
+
+
+
+.old-score{
+    color: red;
+}

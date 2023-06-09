@@ -490,4 +490,10 @@ ul.nav-menu li:last-child{
       margin-bottom: 1em;
     }
 
+    .contactcleur{
+      color: white;
+      border: 2px solid white;
+      padding: 10px;
+   }
+
   

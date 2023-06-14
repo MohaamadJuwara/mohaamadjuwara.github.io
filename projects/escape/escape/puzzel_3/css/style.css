@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+}
+
+.kraan{
+    background-image: url('../../../puzzel_2/img/kraan.jpg');
+}
+
+#wrappe3{
+    position: absolute;
+    margin-left: 200px;
+    top: 100px;
+    left: 550px;
+    background-color: rgb(120, 42, 165);
+
+    width: 800px;
+    height: 900px;
+    margin: auto;
+}
+
+
+h1{
+    background: rgb(29, 3, 145);
+    border-radius: 20px;
+    text-align: center;
+}
+
+button1{
+    margin-top: 40px;
+}

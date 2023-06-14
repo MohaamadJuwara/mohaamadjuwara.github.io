@@ -1,0 +1,30 @@
+
+body {
+    background-image: url('../img/bureau.jpg');
+}
+
+h1{
+    background-color: aquamarine;
+    text-align: center;
+  
+}
+.container {
+    width: 800px;
+    margin: 0 auto;
+}
+#wrapper{
+    position: absolute;
+    margin-left: 200px;
+    top: 100px;
+    left: 550px;
+    background-color: brown;
+}
+#btn-one {
+    height: 40px;
+    margin-top: 150px;
+    margin-left: 320px;
+    background-color: cadetblue;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 1px 0px 17px -2px rgba(0,0,0,0.66);
+}

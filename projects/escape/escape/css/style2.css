@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    
+}
+
+#wrapper1 {
+    width: 800px;
+    height: 900px;
+    background: beige;
+    margin: auto;
+}
+
+.img-wrapper {
+    width: 80px;
+    height: 80px;
+    margin:10px 0 10px 0;
+    padding: 5px;
+    display: inline;
+}
+
+img{
+    height: 200px;
+    width: 200px;
+    
+}
+
+#wrapper-1 {
+    position: absolute;
+    top: 50px;
+    left: 550px;
+}
+#wrapper-2 {
+    position: absolute;
+    top: 50px;
+    left: 800px;
+}
+#wrapper-3 {
+    position: absolute;
+    top: 50px;
+    right: 750px;
+}
+#wrapper-4 {
+    position: absolute;
+    top: 280px;
+    left: 550px;
+}
+#wrapper-5 {
+    position: absolute;
+    top: 280px;
+    left: 800px;
+}
+#wrapper-6 {
+    position: absolute;
+    top: 280px;
+    right: 750px;
+}
+#wrapper-7 {
+    position: absolute;
+    top: 500px;
+    left: 550px;
+}
+#wrapper-8 {
+    position: absolute;
+    top: 500px;
+    left: 800px;
+}
+#wrapper-9 {
+    position: absolute;
+    top: 500px;
+    right: 750px;
+}
+
+button{
+    position: absolute;
+    top: 800px;
+    left: 880px;
+}
+
+h3 {
+    text-align: center;
+}

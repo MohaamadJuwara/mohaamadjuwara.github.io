@@ -1,0 +1,193 @@
+body {
+    background-color: #EBCFB2;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.tile {
+    background-color: #F7996E;
+    cursor: pointer;
+}
+
+
+
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, [col-start] 1fr);
+    grid-template-areas:
+    "hd hd hd hd hd hd hd hd hd hd hd hd "
+    ". . . . score score score score . . . ."
+    ". . . . bp1 .  . bp2 . . . ."
+    ". . . . bp1 .  . bp2 . . . ."
+    ". . . . main main main main . . . ."
+
+    ;
+}
+
+
+.header {
+    grid-area: hd;
+    text-align: center;
+    color: #6e8ef767;
+}
+
+
+.score {
+    grid-area: score;
+
+    /* border-radius: 20px; */
+    height: 150px;
+    width: 590px;
+    text-align: center;
+    background-color: #6ef773;
+    padding: 10px;
+
+}
+
+.button-panel1 {
+    grid-area: bp1;
+     margin-top: 20px;
+    /*margin-bottom: 20px; */
+    text-align: center;
+}
+
+.button-panel {
+    grid-area: bp2;
+     margin-top: 20px;
+    /*margin-bottom: 20px; */
+    text-align: center;
+}
+
+.start-game-button{
+    height: 50px;
+    width: 100px;
+    background-color: rgba(153, 129, 51, 0.801);
+    margin-bottom: 10px;
+    font-size: 15px;
+    border-radius: 50%;
+    color: green;
+    
+}
+
+.stop-game-button{
+    height: 50px;
+    width: 100px;
+    background-color: rgba(51, 153, 80, 0.801);
+    margin-bottom: 10px;
+    font-size: 15px;
+    border-radius: 50%;
+    color: rgb(250, 18, 18);
+    
+}
+
+
+
+.tile-wrapper {
+    display: grid;
+    grid-area: main;
+    gap: 10px;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(3, 200px);
+    
+}
+
+
+.box{
+    font-size: 200px;
+    text-align: center;
+}
+
+.PX{
+    padding: 0;
+    float: left;
+    font-size: 25px;
+    color: royalblue;
+}
+
+.PO{
+    padding: 0;
+    float: right;
+    font-size: 25px;
+    color: royalblue;
+}
+
+.scoreDisplay1{
+    height: 30px;
+    width: 40px;
+    background-color: #F7996E;
+}
+
+.scoreDisplay2{
+    height: 30px;
+    width: 40px;
+    background-color: #F7996E;
+}
+
+
+
+/* to adjust the style in smaller screens */
+@media screen and (max-width: 768px) {
+    /* Adjust styles for smaller screens */
+  
+    .wrapper {
+      grid-template-columns: repeat(6, [col-start] 1fr);
+      grid-template-areas:
+        "hd hd hd hd hd hd"
+        "score score score score score score"
+        "bp1 bp1 bp1 bp2 bp2 bp2"
+        "main main main main main main";
+    }
+  
+    .tile-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(6, 100px);
+    }
+  
+    .box {
+      font-size: 100px;
+    }
+  
+    .PX, .PO {
+      font-size: 20px;
+    }
+  
+    .start-game-button, .stop-game-button {
+      height: 30px;
+      width: 60px;
+      font-size: 12px;
+    }
+  }
+  
+  /* to adjust the screens even smaller */
+  @media screen and (max-width: 480px) {
+    /* Adjust styles for even smaller screens */
+  
+    .wrapper {
+      grid-template-columns: repeat(2, [col-start] 1fr);
+      grid-template-areas:
+        "hd hd"
+        "score score"
+        "bp1 bp2"
+        "main main";
+    }
+  
+    .tile-wrapper {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(9, 100px);
+    }
+  
+    .box {
+      font-size: 60px;
+    }
+  
+    .PX, .PO {
+      font-size: 15px;
+    }
+  
+    .start-game-button, .stop-game-button {
+      height: 20px;
+      width: 40px;
+      font-size: 8px;
+    }
+  }
+  

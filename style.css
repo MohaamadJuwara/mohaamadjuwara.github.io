@@ -496,4 +496,12 @@ ul.nav-menu li:last-child{
       padding: 10px;
    }
 
+   .contact{
+    background: #33CCCC;
+    border: 1px solid;
+    height: 340px;
+    width: 400px;
+    
+   }
+
   

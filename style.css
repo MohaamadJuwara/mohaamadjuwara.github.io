@@ -124,8 +124,8 @@ ul.nav-menu li:last-child{
 }
 
 .home-img{
-    width: 450px;
-    height: 450px;
+    width: 350px;
+    height: 350px;
     border: 15px solid;
     border-color: #292929;
     border-radius: 50% 50% 0% 50%;

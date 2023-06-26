@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #d9dbf1;
+}
+.nav{
+    
+    font-size: 20px;
+    background-color:#7d84b2 ;
+    
+}
+.logo{
+    width: 80px;
+}
+.nav-link{
+    color: white;
+}
+.navbar-brand{
+    color: white;
+    font-size: 25px;
+
+}
+.ch{
+    text-align: center;
+
+}

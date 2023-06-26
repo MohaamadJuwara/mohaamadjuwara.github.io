@@ -1,0 +1,35 @@
+
+body {
+  background: red;
+  height: 100vh;
+}
+
+.logoImg{
+  height: 50px;
+  width: 70px ;
+  float: right;
+  
+}
+.dashboard{
+  float: right;
+}
+
+.footer{
+  margin-top: 200px;
+  text-align: center;
+  position: relative;
+}
+
+.offcanvas-end {
+  left: 0;
+  right: auto;
+  transform: translateX(-100%);
+}
+
+.offcanvas {
+  width: 1900px;
+}
+
+.bgcanvas{
+  background-color: aquamarine;
+}

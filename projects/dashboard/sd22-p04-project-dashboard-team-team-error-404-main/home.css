@@ -1,0 +1,51 @@
+body{
+    background-color: #d9dbf1;
+}
+
+.nav{
+    
+    font-size: 20px;
+    background-color:#7d84b2 ;
+    
+}
+.logo{
+    width: 80px;
+}
+.nav-link{
+    color: white;
+}
+.navbar-brand{
+    color: white;
+    font-size: 25px;
+
+}
+.car{
+    height: 400px;
+    width: 100%;
+    border: 5px solid #8e9dcc;
+    box-shadow: 5px;
+}
+.caro{
+    padding: 10px;
+  
+    
+}
+.card {
+    margin-right: 10px;
+    background-color: #8e9dcc;
+    color: white;
+    text-align: center;
+  }
+  
+  .card:last-child {
+    margin-right: 0;
+  }
+  .btn{
+    border: 1px solid #8e9dcc;
+    background-color: #7d84b2;
+    color: white;
+  }
+  .img{
+    height: 170px;
+    border-bottom: #676c8a 5px solid;
+  }

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="dash.css">
+  </head>
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+          <i class='bx bxl-c-plus-plus'></i>
+          <span class="logo_name">dashboard</span>
+        </div>
+          <ul class="nav-links">
+            <li>
+              <a href="/home.html" class="active">
+                <i class='bx bx-grid-alt' ></i>
+                <span class="links_name">Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class='bx bx-box' ></i>
+                <span class="links_name">Product</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class='bx bx-list-ul' ></i>
+                <span class="links_name">Order list</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class='bx bx-pie-chart-alt-2' ></i>
+                <span class="links_name">Analytics</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class='bx bx-coin-stack' ></i>
+                <span class="links_name">Stock</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class='bx bx-book-alt' ></i>
+                <span class="links_name">Total order</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class='bx bx-user' ></i>
+                <span class="links_name">Team</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class='bx bx-message' ></i>
+                <span class="links_name">Messages</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class='bx bx-heart' ></i>
+                <span class="links_name">Favrorites</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class='bx bx-cog' ></i>
+                <span class="links_name">Setting</span>
+              </a>
+            </li>
+            <li class="log_out">
+              <a href="#">
+                <i class='bx bx-log-out'></i>
+                <span class="links_name">Log out</span>
+              </a>
+            </li>
+          </ul>
+      </div>
+      <section class="home-section">
+        <nav>
+          <div class="sidebar-button">
+            <i class='bx bx-menu sidebarBtn'></i>
+            <span class="dashboard">Dashboard</span>
+          </div>
+          <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <i class='bx bx-search' ></i>
+          </div>
+          <div class="profile-details">
+            <img src="images/Person_icon_BLACK-01.svg.png" alt="">
+            <span class="admin_name">Khalid Ezba</span>
+            <i class='bx bx-chevron-down' ></i>
+          </div>
+        </nav>
+        <div class="home-content">
+          <div class="overview-boxes">
+            <div class="box">
+              <div class="right-side">
+                <div class="box-topic">Total Order</div>
+                <div class="number">40,876</div>
+                <div class="indicator">
+                  <i class='bx bx-up-arrow-alt'></i>
+                  <span class="text">Up from yesterday</span>
+                </div>
+              </div>
+              <i class='bx bx-cart-alt cart'></i>
+            </div>
+            <div class="box">
+              <div class="right-side">
+                <div class="box-topic">Total Sales</div>
+                <div class="number">38,876</div>
+                <div class="indicator">
+                  <i class='bx bx-up-arrow-alt'></i>
+                  <span class="text">Up from yesterday</span>
+                </div>
+              </div>
+              <i class='bx bxs-cart-add cart two' ></i>
+            </div>
+            <div class="box">
+              <div class="right-side">
+                <div class="box-topic">Total Profit</div>
+                <div class="number">$12,876</div>
+                <div class="indicator">
+                  <i class='bx bx-up-arrow-alt'></i>
+                  <span class="text">Up from yesterday</span>
+                </div>
+              </div>
+              <i class='bx bx-cart cart three' ></i>
+            </div>
+            <div class="box">
+              <div class="right-side">
+                <div class="box-topic">Total Return</div>
+                <div class="number">11,086</div>
+                <div class="indicator">
+                  <i class='bx bx-down-arrow-alt down'></i>
+                  <span class="text">Down From Today</span>
+                </div>
+              </div>
+              <i class='bx bxs-cart-download cart four' ></i>
+            </div>
+          </div>
+          <div class="sales-boxes">
+            <!-- chart1 -->
+            <div class="recent-sales box">
+              <h5>chart-1</h5>
+              <canvas class="chart-1"></canvas>
+            </div>
+            <div class="top-sales box">
+              
+              <div class="title">Top Seling Product</div>
+              <ul class="top-sales-details">
+                <li>
+                <a href="#">
+                 
+                  <span class="product">Vuitton Sunglasses</span>
+                </a>
+                <span class="price">$1107</span>
+              </li>
+              <li>
+                <a href="#">
+                  
+                  <span class="product">Hourglass Jeans </span>
+                </a>
+                <span class="price">$1567</span>
+              </li>
+              <li>
+                <a href="#">
+                 
+                  <span class="product">Nike Sport Shoe</span>
+                </a>
+                <span class="price">$1234</span>
+              </li>
+              <li>
+                <a href="#">
+                 
+                  <span class="product">Hermes Silk Scarves.</span>
+                </a>
+                <span class="price">$2312</span>
+              </li>
+              <li>
+                <a href="#">
+                
+                  <span class="product">Succi Ladies Bag</span>
+                </a>
+                <span class="price">$1456</span>
+              </li>
+              <li>
+                <a href="#">
+             
+                  <span class="product">Gucci Womens's Bags</span>
+                </a>
+                <span class="price">$2345</span>
+              <li>
+                <a href="#">
+               
+                  <span class="product">Addidas Running Shoe</span>
+                </a>
+                <span class="price">$2345</span>
+              </li>
+    <li>
+                <a href="#">
+                
+                  <span class="product">Bilack Wear's Shirt</span>
+                </a>
+                <span class="price">$1245</span>
+              </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-6">
+            <h5>chart-1</h5>
+            <canvas class="chart-1"></canvas>
+          </div>
+          <div class="col-6"></div>
+        </div>
+      </div>
+      <!-- Bootstrap JavaScript Libraries -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+
+
+
+
+<!-- chart link -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="dash.js"></script>
+
+</body>
+</html>

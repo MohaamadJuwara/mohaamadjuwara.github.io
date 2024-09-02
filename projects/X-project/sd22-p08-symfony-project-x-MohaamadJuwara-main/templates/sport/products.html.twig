@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ category.name }} Sport fitness overzicht{% endblock %}
+
+{% block body %}
+    <h1>Alle sports dengen in de categorie {{ category.name }}</h1>
+
+    <div class="row gx-3">
+        {%  for category in categories.products %}
+            <div class="col-12 col-md-6  col-lg-4 col-xl-3 d-flex align-items-stretch">
+                <div class="card mb-3">
+                    <div class="row g-1">
+                        <div class="col-md-4 pt-4 p-2">
+                            <img src="{{ asset(category.image) }}" class="img-fluid rounded-start" alt="{{ pizza.name }}">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ category.name }}</h5>
+                                <p class="card-text">
+                                    {{ category.description }}
+                                </p>
+                                <a href="{{ path('app_product', {'product': category.id}) }}" class="btn btn-outline-primary">Order!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

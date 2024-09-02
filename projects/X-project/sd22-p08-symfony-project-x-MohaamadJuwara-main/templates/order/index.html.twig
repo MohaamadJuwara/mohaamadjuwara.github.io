@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bestel jouw pizza nu!!{% endblock %}
+
+{% block body %}
+
+    <figure>
+        <img class="img-fluid" src="{{ asset('img/trainbanner.jpeg') }}" style="height: 200px" width="3000px">
+    </figure>
+
+    <h1 class="bg-dark text-white">Welcome to the bestel pagina</h1>
+
+
+    <div class="row">
+        <div class="col-4">
+            <div class="card p-2">
+                <img src="{{ asset(product.image) }}" class="card-img-top" alt="{{ product.image }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }} &euro; <span class="pizza-normal-price">{{ product.price }}</span></h5>
+                    <p class="card-text">
+                        {{ product.description }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-8">
+
+            {%  for label, messages in app.flashes %}
+                {%  for msg in messages %}
+
+                    {{ msg }}
+
+                {%  endfor %}
+            {%  endfor %}
+
+
+            <h2>Bestel de {{ product.name }} voor &euro; <span class="pizza-price">{{ product.price }}</span></h2>
+
+
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+
+            <div class="form-group">
+                {{ form_label(form.name, null, { 'label_attr': {'class': 'form-label'} }) }}
+                {{ form_widget(form.name, { 'attr': {'class': 'form-control'} }) }}
+                {{ form_errors(form.name) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.surname, null, { 'label_attr': {'class': 'form-label'} }) }}
+                {{ form_widget(form.surname, { 'attr': {'class': 'form-control'} }) }}
+                {{ form_errors(form.surname) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.address, null, { 'label_attr': {'class': 'form-label'} }) }}
+                {{ form_widget(form.address, { 'attr': {'class': 'form-control'} }) }}
+                {{ form_errors(form.address) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.size, null, { 'label_attr': {'class': 'form-label'} }) }}
+                {{ form_widget(form.size, { 'attr': {'class': 'form-control'} }) }}
+                {{ form_errors(form.size) }}
+            </div>
+
+
+
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+
+
+    {% include "sport/footer.html.twig" %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+

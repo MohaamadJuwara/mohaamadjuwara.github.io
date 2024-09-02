@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SportController!{% endblock %}
+
+{% block body %}
+
+   
+   
+             <figure>
+                <img class="img-fluid" src="{{ asset('img/trainbanner.jpeg') }}" style="height: 200px" width="3000px">
+             </figure>
+    <h1 class="bg-dark text-white">Welcome to our page, choose your choice of sport?</h1>
+  
+
+    <div class="row gx-3">
+        {%  for category in categories %}
+            <div class="col-6 col-md-4 d-flex align-items-stretch ">
+                <div class="card mb-3 bg-gray col-8">
+                    <div class="row g-1">
+                        <div class="col-md-4">
+                            <img src="{{ asset(category.image) }}" class="img-fluid rounded-start" alt="{{ category.name }}" style="height: 200px" width="150px">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ category.name }}</h5>
+                                <p class="card-text">
+                                    {{ category.description }}
+                                </p>
+                                <a href="{{ path('app_category_products', {'id': category.id}) }}" class="btn btn-outline-primary">Select!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+      {% include "sport/footer.html.twig" %}
+
+{% endblock %}

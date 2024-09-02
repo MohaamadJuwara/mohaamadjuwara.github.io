@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bestel jouw pizza nu!!{% endblock %}
+
+{% block body %}
+
+    <figure>
+        <img class="img-fluid" src="{{ asset('img/trainbanner.jpeg') }}" style="height: 200px" width="3000px">
+    </figure>
+
+    <h1 class="bg-dark text-white">Welcome to the bestel pagina</h1>
+    {%  for label, messages in app.flashes %}
+        {%  for msg in messages %}
+
+            {{ msg }}
+
+        {%  endfor %}
+    {%  endfor %}
+
+    <div class="row">
+
+        <tb class="col-8">
+
+            <table class="table table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Address</th>
+                    <th>size</th>
+                </tr>
+                </thead>
+
+
+                {% for order in orders %}
+
+
+                    <tr>
+                        <td>{{ order.id }}</td>
+                        <td>{{ order.name }} </td>
+                        <td>{{ order.surname }}</td>
+                        <td>{{ order.address }}</td>
+                        <td>{{ order.size }}</td>
+
+
+
+                    </tr>
+
+
+
+                {% endfor %}
+
+            </table>
+        </tb>
+    </div>
+
+
+
+
+
+    {% include "sport/footer.html.twig" %}
+
+{% endblock %}
+

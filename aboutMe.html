@@ -1,60 +1,228 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - M. Juwara</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <nav>
-    <div class="container-fluid d-flex justify-content-between">
-        <ul class="nav-menu d-flex text-dark">
-            <li>
-                <img class="img-fluid " width="90px" src="img/logo m-16.png" alt="">
-             </li>
-            <li>
-                <a href="index.html" class="text-dark "> Home</a>
-            </li>
-            <li>
-                <a href="aboutMe.html" class="text-white ">AboutMe</a>
-            </li>
-            <li>
-                <a href="projects.html" class="text-dark">Projects</a>
-            </li>
-           
-            <li>
-                <a href="contact.html" class="text-dark">Contact</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-  <div class="alert alert-primary" role="alert">
-    <img>
-    <source srcset="..." type="image/svg+xml">
-    <img src="img/pic..jpg" class=" img-fluid img-thumbnail animate__animated animate__bounce" alt="..." style="height: 70px; width: 50px;">
-    </img>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="img/logo m-16.png" alt="Logo" width="50" height="50" class="me-2">
+                <span class="fw-bold text-dark">M. Juwara</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold" href="aboutMe.html">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <h4 class="alert-heading ">M.Juwara</h4>
-    <h4 class="a"></h4>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="hero-title mb-4">
+                            Hi, I'm <span class="text-primary">Mohaamad Juwara</span>
+                        </h1>
+                        <p class="hero-subtitle mb-4">
+                            A passionate developer and creative problem solver
+                        </p>
+                        <p class="hero-description mb-5">
+                            I love turning ideas into reality through code. With a focus on web development, 
+                            I create engaging digital experiences that make a difference.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="projects.html" class="btn btn-primary btn-lg me-3">
+                                <i class="fas fa-code me-2"></i>View My Work
+                            </a>
+                            <a href="contact.html" class="btn btn-outline-primary btn-lg">
+                                <i class="fas fa-envelope me-2"></i>Get In Touch
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image-container text-center">
+                        <div class="profile-image-wrapper">
+                            <img src="img/foto-pro.jpg" alt="Mohaamad Juwara" class="profile-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  </div>
+    <!-- About Section -->
+    <section class="about-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">About Me</h2>
+                    <div class="title-underline"></div>
+                </div>
+            </div>
+            
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                    <div class="about-content">
+                        <h3 class="about-heading mb-4">Who I Am</h3>
+                        <p class="about-text mb-4">
+                            I'm a dedicated developer with a passion for creating innovative web solutions. 
+                            My journey in technology has been driven by curiosity and a desire to build 
+                            things that matter.
+                        </p>
+                        <p class="about-text mb-4">
+                            I believe in writing clean, maintainable code and staying up-to-date with 
+                            the latest technologies and best practices in web development.
+                        </p>
+                        
+                        <div class="skills-section mt-5">
+                            <h4 class="skills-title mb-3">Technical Skills</h4>
+                            <div class="skills-grid">
+                                <div class="skill-item">
+                                    <i class="fas fa-code text-primary"></i>
+                                    <span>Web Development</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fas fa-mobile-alt text-primary"></i>
+                                    <span>Responsive Design</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fas fa-database text-primary"></i>
+                                    <span>Database Management</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fas fa-paint-brush text-primary"></i>
+                                    <span>UI/UX Design</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="about-image-container text-center">
+                        <div class="about-image-wrapper">
+                            <img src="img/foto.jpg" alt="Working on projects" class="about-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Experience Section -->
+    <section class="experience-section py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">My Journey</h2>
+                    <div class="title-underline"></div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="experience-card text-center">
+                        <div class="experience-icon mb-3">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4>Education</h4>
+                        <p>Studying Software Development with a focus on web technologies and modern frameworks.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="experience-card text-center">
+                        <div class="experience-icon mb-3">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h4>Projects</h4>
+                        <p>Building various web applications, from simple websites to complex web systems.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="experience-card text-center">
+                        <div class="experience-icon mb-3">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Collaboration</h4>
+                        <p>Working in teams to deliver high-quality software solutions and learning from peers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
- 
-  </div>
+    <!-- Contact CTA Section -->
+    <section class="cta-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h3 class="cta-title mb-4">Let's Work Together</h3>
+                    <p class="cta-text mb-4">
+                        I'm always interested in new opportunities and exciting projects. 
+                        Let's discuss how we can bring your ideas to life.
+                    </p>
+                    <a href="contact.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-paper-plane me-2"></i>Start a Conversation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer class="footer py-4 bg-dark text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 M. Juwara. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-links">
+                        <a href="#" class="social-link me-3"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link me-3"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-
-  <script src="main.js"></script>
+    <script src="main.js"></script>
 </body>
-
 </html>

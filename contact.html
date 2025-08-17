@@ -1,55 +1,194 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contact - Mohaamad Juwara</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-</head>
-<body>
 
-    <nav>
-        <div class="container-fluid-md-sm d-flex justify-content-between">
-            <ul class="nav-menu d-flex text-dark">
-                <li>
-                    <img class="img-fluid " width="90px" src="img/logo m-16.png" alt="">
-                 </li>
-                <li>
-                    <a href="index.html" class="text-dark "> Home</a>
-                </li>
-                <li>
-                    <a href="aboutMe.html" class="text-dark ">AboutMe</a>
-                </li>
-                <li>
-                    <a href="projects.html" class="text-dark">Projects</a>
-                </li>
-               
-                <li>
-                    <a href="contact.html" class="text-white">Contact</a>
-                </li>
-            </ul>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="img/logo m-16.png" alt="Logo" width="50" height="50" class="me-2">
+                <span class="fw-bold text-dark">M. Juwara</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutMe.html">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-   
-      
-            <div class="container-fluid-sm-md contact  align-items-center">
-                <h3 class="contactcleur">u kunt me berekeien via  </h3> <br>
-                    <p>Email: <a href="mailto:mohaamadjuwara@yahoo.com">click hier!</a></p>
-                    <p>telefoon nummer: <a href="tel:+31638186372">bel mij</a> </p>
-                    <p>Facebook: <a href="#">click hier!</a></p>
-                    <p>instagram: <a href="#">click hier!</a></p>
-                    <p>twitter: <a href="mailto:mohaamadjuwara@yahoo.com">click hier!</a></p>
+    <!-- Hero Section -->
+    <section class="contact-hero-section">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h1 class="contact-hero-title">Get In Touch</h1>
+                    <p class="contact-hero-subtitle">I'd love to hear from you!</p>
+                </div>
             </div>
-     
+        </div>
+    </section>
 
-         
-   
-    
+    <!-- Contact Section -->
+    <section class="contact-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-card">
+                        <div class="row">
+                            <div class="col-12 text-center mb-5">
+                                <h2 class="section-title">Contact Information</h2>
+                                <div class="title-underline"></div>
+                                <p class="contact-intro">U kunt me bereiken via de volgende kanalen:</p>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <h4>Email</h4>
+                                        <p><a href="mailto:mohaamadjuwara@yahoo.com" class="contact-link">mohaamadjuwara@yahoo.com</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <h4>Telefoon</h4>
+                                        <p><a href="tel:+31638186372" class="contact-link">+31 6 38186372</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fab fa-facebook"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <h4>Facebook</h4>
+                                        <p><a href="#" class="contact-link">Volg mij op Facebook</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fab fa-instagram"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <h4>Instagram</h4>
+                                        <p><a href="#" class="contact-link">Volg mij op Instagram</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fab fa-twitter"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <h4>Twitter</h4>
+                                        <p><a href="#" class="contact-link">Volg mij op Twitter</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fab fa-linkedin"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <h4>LinkedIn</h4>
+                                        <p><a href="#" class="contact-link">Connect op LinkedIn</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Info Section -->
+    <section class="info-section py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h3 class="info-title mb-4">Let's Work Together</h3>
+                    <p class="info-text">
+                        Whether you have a project in mind, want to discuss opportunities, or just want to say hello, 
+                        I'm always open to new conversations and collaborations.
+                    </p>
+                    <div class="contact-actions mt-4">
+                        <a href="mailto:mohaamadjuwara@yahoo.com" class="btn btn-primary btn-lg me-3">
+                            <i class="fas fa-envelope me-2"></i>Send Email
+                        </a>
+                        <a href="tel:+31638186372" class="btn btn-outline-primary btn-lg">
+                            <i class="fas fa-phone me-2"></i>Call Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-4 bg-dark text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 M. Juwara. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-links">
+                        <a href="#" class="social-link me-3"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link me-3"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

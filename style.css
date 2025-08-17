@@ -2,17 +2,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 body{
     font-family: 'inter', sans-serif;
+    background: #33CCCC; /* Fallback */
+    animation: color 9s infinite linear;
+    text-align: center;
+    padding: 2em;
 }
 
 .container {
     width: 1120px;
     margin: auto;
-
 }
 
 ul{
@@ -43,7 +45,6 @@ ul.nav-menu li a{
     color: #2292;
     font-size: 16px;
     text-transform: uppercase;
-
 }
 
 button.change-mode{
@@ -65,8 +66,6 @@ ul.nav-menu li:last-child{
     font-weight: 500;
     padding: 20px 0;
     color: #333333;
-
-
 }
 
 .home-text span{
@@ -81,10 +80,9 @@ ul.nav-menu li:last-child{
     padding: 20px 0;
     color: #1f050599;
     position: relative;
-   
 }
 
-.home-text h1 ::after{
+.home-text h1::after{
     content: '';
     width: 150px;
     height: 4px;
@@ -133,10 +131,10 @@ ul.nav-menu li:last-child{
     position: relative;
 }
 
-
 .home-img img{
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .home-img-border{
@@ -154,6 +152,7 @@ ul.nav-menu li:last-child{
     right: 0;
 }
 
+/* Color animation for background */
 @keyframes color {
     0%   { background: #33CCCC; }
     20%  { background: #33CC36; }
@@ -161,347 +160,417 @@ ul.nav-menu li:last-child{
     60%  { background: #FCCA00; }
     80%  { background: #33CC36; }
     100% { background: #33CCCC; }
-  }
-  
-  body {
-    background: #33CCCC; /* Fallback */
-    animation: color 9s infinite linear;
-    text-align: center;
-    padding: 2em;
-  }
-  h1 {
-    text-align: center;
-    font-family: 'Kavoon', sans-serif;
-    font-size: 2.5em;
-    color: white;
-  }
+}
 
-
-  .animate-charcter
-{
-   text-transform: uppercase;
-  background-image: linear-gradient(
-    -225deg,
-    red 0%,
-    darkblue 29%,
-    azure 67%,
-    darkgreen 100%
-  );
-  background-size: auto auto;
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 2s linear infinite;
-  display: inline-block;
-      font-size: 190px;
+/* Animated character styling */
+.animate-charcter{
+    text-transform: uppercase;
+    background-image: linear-gradient(
+        -225deg,
+        red 0%,
+        darkblue 29%,
+        azure 67%,
+        darkgreen 100%
+    );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
+    font-size: 190px;
 }
 
 @keyframes textclip {
-  to {
-    background-position: 200% center;
-  }
+    to {
+        background-position: 200% center;
+    }
 }
 
+/* ORIGINAL PROJECTS PAGE STYLING - EXACTLY AS IT WAS */
+:root {
+    --card-height: 40vw;
+    --card-margin: 4vw;
+    --card-top-offset: 1em;
+    --numcards: 6;
+    --outline-width: 0px;
+}
 
-
-.title-word {
-    animation: color-animation 4s linear infinite;
-  }
-  
-  .title-word-1 {
-    --color-1: #DF8453;
-    --color-2: #3D8DAE;
-    --color-3: #E4A9A8;
-  }
-  
-  .title-word-2 {
-    --color-1: #DBAD4A;
-    --color-2: #ACCFCB;
-    --color-3: #17494D;
-  }
-  
-  .title-word-3 {
-    --color-1: #ACCFCB;
-    --color-2: #E4A9A8;
-    --color-3: #ACCFCB;
-  }
-  
-  .title-word-4 {
-    --color-1: #3D8DAE;
-    --color-2: #DF8453;
-    --color-3: #E4A9A8;
-  }
-  
-  @keyframes color-animation {
-    0%    {color: var(--color-1)}
-    32%   {color: var(--color-1)}
-    33%   {color: var(--color-2)}
-    65%   {color: var(--color-2)}
-    66%   {color: var(--color-3)}
-    99%   {color: var(--color-3)}
-    100%  {color: var(--color-1)}
-  }
-  
-  /* Here are just some visual styles. 🖌 */
-  
-  .container {
+#cards {
+    list-style: none;
+    outline: calc(var(--outline-width) * 10) solid blue;
     display: grid;
-    place-items: center;  
-    text-align: center;
-    height: 100vh
-  }
-  
-  .title {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 800;
-    font-size: 8.5vw;
-    text-transform: uppercase;
-  }
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(var(--numcards), var(--card-height));
+    gap: var(--card-margin);
+    padding-bottom: calc(var(--numcards) * var(--card-top-offset));
+    margin-bottom: var(--card-margin);
+}
 
-  
-  /* This only changes this particular animation duration */
-.animate__animated.animate__bounce {
-    --animate-duration: 20s;
-  }
-  
-  /* This changes all the animations globally */
-  .animate__animated.animate__bounce:root {
-    --animate-duration: 20s;
-    --animate-delay: 0.1s;
-  }
+#card_1 {
+    --index: 1;
+}
 
-    :root {
-      --card-height: 40vw;
-      --card-margin: 4vw;
-      --card-top-offset: 1em;
-      --numcards: 4;
-      --outline-width: 0px;
-    }
-  
-    #cards {
-      padding-bottom: calc(var(--numcards) * var(--card-top-offset));
-      /* Make place at bottom, as items will slide to that position*/
-      margin-bottom: var(--card-margin);
-      /* Don't include the --card-margin in padding, as that will affect the scroll-timeline*/
-    }
-  
-    #card_1 {
-      --index: 1;
-    }
-  
-    #card_2 {
-      --index: 2;
-    }
-  
-    #card_3 {
-      --index: 3;
-    }
-  
-    #card_4 {
-      --index: 4;
-    }
-  
-    .card {
-      position: sticky;
-      top: 0;
-      padding-top: calc(var(--index) * var(--card-top-offset));
-    }
-  
-    @supports (animation-timeline: works) {
-  
-       @scroll-timeline cards-element-scrolls-in-body {
+#card_2 {
+    --index: 2;
+}
+
+#card_3 {
+    --index: 3;
+}
+
+#card_4 {
+    --index: 4;
+}
+
+#card_5 {
+    --index: 5;
+}
+
+#card_6 {
+    --index: 6;
+}
+
+.card {
+    position: sticky;
+    top: 0;
+    padding-top: calc(var(--index) * var(--card-top-offset));
+    outline: var(--outline-width) solid hotpink;
+}
+
+.card__content {
+    box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.1), 0 1em 2em rgba(0, 0, 0, 0.1);
+    background: rgb(255, 255, 255);
+    color: rgb(10, 5, 7);
+    border-radius: 1em;
+    overflow: hidden;
+    display: grid;
+    grid-template-areas: "text img";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    align-items: stretch;
+    outline: var(--outline-width) solid lime;
+}
+
+.card__content > div {
+    grid-area: text;
+    width: 80%;
+    place-self: center;
+    text-align: left;
+    display: grid;
+    gap: 1em;
+    place-items: start;
+}
+
+.card__content > figure {
+    grid-area: img;
+    overflow: hidden;
+}
+
+.card__content > figure > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card__content h2 {
+    font-weight: 300;
+    font-size: 3.5em;
+    color: #333;
+}
+
+.card__content p {
+    font-family: sans-serif;
+    font-weight: 300;
+    line-height: 1.42;
+    color: #666;
+}
+
+.btn--accent {
+    background: rgb(188 87 36);
+    color: rgb(255 255 255);
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    transition: all 0.3s ease;
+}
+
+.btn--accent:hover {
+    background: rgb(160 70 30);
+    transform: scale(1.05);
+}
+
+/* Scroll timeline support */
+@supports (animation-timeline: works) {
+    @scroll-timeline cards-element-scrolls-in-body {
         source: selector(body);
         scroll-offsets:
-          /* Start when the start edge touches the top of the scrollport */
-          selector(#cards) start 1,
-          /* End when the start edge touches the start of the scrollport */
-          selector(#cards) start 0;
+            /* Start when the start edge touches the top of the scrollport */
+            selector(#cards) start 1,
+            /* End when the start edge touches the start of the scrollport */
+            selector(#cards) start 0;
         start: selector(#cards) start 1;
         /* Start when the start edge touches the top of the scrollport */
         end: selector(#cards) start 0;
         /* End when the start edge touches the start of the scrollport */
         time-range: 4s;
-      }
-  
-      .card {
+    }
+
+    .card {
         --index0: calc(var(--index) - 1);
         /* 0-based index */
         --reverse-index: calc(var(--numcards) - var(--index0));
         /* reverse index */
         --reverse-index0: calc(var(--reverse-index) - 1);
         /* 0-based reverse index */
-      }
-  
-      .card__content {
+    }
+
+    .card__content {
         transform-origin: 50% 0%;
         will-change: transform;
-  
         --duration: calc(var(--reverse-index0) * 1s);
         --delay: calc(var(--index0) * 1s);
-  
         animation: var(--duration) linear scale var(--delay) forwards;
         animation-timeline: cards-element-scrolls-in-body;
-      }
-  
-      @keyframes scale {
+    }
+
+    @keyframes scale {
         to {
-          transform:
-            scale(calc(1.1 - calc(0.1 * var(--reverse-index))));
+            transform:
+                scale(calc(1.1 - calc(0.1 * var(--reverse-index))));
         }
-      }
     }
-  
-    /** DEBUG **/
-  
-    #debug {
-      position: fixed;
-      top: 1em;
-      left: 1em;
-    }
-  
-    #debug::after {
-      content: " Show Debug";
-      margin-left: 1.5em;
-      color: white;
-      white-space: nowrap;
-    }
-  
-    #debug:checked~main {
-      --outline-width: 1px;
-    }
-  
-  
-    /** PAGE STYLING **/
-  
-    * {
-      /* Poor Man's Reset */
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-  
+}
+
+/* Debug styling */
+#debug {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+}
+
+#debug::after {
+    content: " Show Debug";
+    margin-left: 1.5em;
+    color: white;
+    white-space: nowrap;
+}
+
+#debug:checked~main {
+    --outline-width: 1px;
+}
+
+/* Projects page specific styling */
+body {
+    background: rgb(58 29 43);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: calc(1em + 0.5vw);
+}
+
+header,
+main {
+    width: 80vw;
+    margin: 0 auto;
+}
+
+header {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+h1 {
+    font-weight: 300;
+    font-size: 3.5em;
+    color: white;
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 2.5em;
+}
+
+p {
+    font-family: sans-serif;
+    font-weight: 300;
+    line-height: 1.42;
+}
+
+aside {
+    width: 50vw;
+    margin: 0 auto;
+    text-align: left;
+    padding: 2rem;
+}
+
+aside p {
+    margin-bottom: 1em;
+    color: white;
+    font-size: 1.2em;
+}
+
+/* About Me page styles */
+.alert {
+    margin: 2rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 2px solid #ea4020 !important;
+}
+
+.alert-heading {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+/* Contact page styles */
+.contact {
+    padding: 2rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    margin: 2rem;
+    border: 2px solid #ea4020;
+}
+
+.contactcleur {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact p {
+    margin: 1rem 0;
+}
+
+.contact a {
+    color: #ea4020;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
     body {
-      background: rgb(58 29 43);
-      color: rgb(255, 255, 255);
-      text-align: center;
-  
-      font-size: calc(1em + 0.5vw);
+        padding: 1em;
     }
-  
-    header,
-    main {
-      width: 80vw;
-      margin: 0 auto;
-    }
-  
-    header {
-      height: 100vh;
-      display: grid;
-      place-items: center;
-    }
-  
-    #cards {
-      list-style: none;
-      outline: calc(var(--outline-width) * 10) solid blue;
-  
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: repeat(var(--numcards), var(--card-height));
-      gap: var(--card-margin);
-    }
-  
-    .card {
-      outline: var(--outline-width) solid hotpink;
-    }
-  
-    .card__content {
-      box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.1), 0 1em 2em rgba(0, 0, 0, 0.1);
-      background: rgb(255, 255, 255);
-      color: rgb(10, 5, 7);
-      border-radius: 1em;
-      overflow: hidden;
-  
-      display: grid;
-      grid-template-areas: "text img";
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto;
-  
-      align-items: stretch;
-      outline: var(--outline-width) solid lime;
-    }
-  
-    .card__content>div {
-      grid-area: text;
-      width: 80%;
-      place-self: center;
-      text-align: left;
-  
-      display: grid;
-      gap: 1em;
-      place-items: start;
-    }
-  
-    .card__content>figure {
-      grid-area: img;
-      overflow: hidden;
-    }
-  
-    .card__content>figure>img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  
-    h1 {
-      font-weight: 300;
-      font-size: 3.5em;
-    }
-  
-    h2 {
-      font-weight: 300;
-      font-size: 2.5em;
-    }
-  
-    p {
-      font-family: sans-serif;
-      font-weight: 300;
-      line-height: 1.42;
-    }
-  
-    .btn {
-      background: rgb(188 87 36);
-      color: rgb(255 255 255);
-      text-decoration: none;
-      display: inline-block;
-      padding: 0.5em;
-      border-radius: 0.25em;
-    }
-  
-    aside {
-      width: 50vw;
-      margin: 0 auto;
-      text-align: left;
-    }
-  
-    aside p {
-      margin-bottom: 1em;
-    }
-
-    .contactcleur{
-      color: white;
-      border: 2px solid white;
-      padding: 10px;
-   }
-
-   .contact{
-    background: #33CCCC;
-    border: 1px solid;
-    height: 340px;
-    width: 400px;
     
-   }
+    .container-fluid {
+        padding: 0 1rem;
+    }
+    
+    .home-text {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .home-text h1 {
+        font-size: 40px;
+    }
+    
+    .home-text h2 {
+        font-size: 24px;
+    }
+    
+    .home-text span {
+        font-size: 18px;
+    }
+    
+    .home-img {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .animate-charcter {
+        font-size: 120px;
+    }
+    
+    :root {
+        --card-height: 60vw;
+        --card-margin: 6vw;
+    }
+    
+    .card__content h2 {
+        font-size: 2.5em;
+    }
+    
+    .card__content p {
+        font-size: 1em;
+    }
+    
+    .btn--accent {
+        padding: 0.8em;
+        font-size: 0.9em;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+}
 
+@media (max-width: 480px) {
+    body {
+        padding: 0.5em;
+    }
+    
+    .home-text h1 {
+        font-size: 32px;
+    }
+    
+    .home-text h2 {
+        font-size: 20px;
+    }
+    
+    .home-text span {
+        font-size: 16px;
+    }
+    
+    .home-img {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .animate-charcter {
+        font-size: 80px;
+    }
+    
+    ul.nav-menu li {
+        padding: 10px;
+    }
+    
+    ul.nav-menu li a {
+        font-size: 14px;
+    }
+    
+    :root {
+        --card-height: 80vw;
+        --card-margin: 8vw;
+    }
+    
+    .card__content h2 {
+        font-size: 2em;
+    }
+    
+    .card__content p {
+        font-size: 0.9em;
+    }
+    
+    .btn--accent {
+        padding: 0.6em;
+        font-size: 0.8em;
+    }
+    
+    h1 {
+        font-size: 1.5em;
+    }
+}
   

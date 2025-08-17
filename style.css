@@ -731,4 +731,113 @@ ul.nav-menu li:last-child{
         opacity: 1 !important;
     }
 }
+
+/* CRITICAL: Ensure ALL content shows on mobile */
+@media (max-width: 768px) {
+    /* Force all main elements to show */
+    body * {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    /* Specific elements that must show */
+    nav,
+    section,
+    main,
+    .container,
+    .container-fluid,
+    .container-fluid-sm,
+    .container-fluid-md-sm {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 100% !important;
+    }
+    
+    /* Force navigation to show */
+    .nav-menu,
+    .nav-menu li,
+    .nav-menu li a {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    /* Force home content to show */
+    .home-text,
+    .home-img,
+    .home-img-border {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 100% !important;
+    }
+    
+    /* Force contact content to show */
+    .contact,
+    .contactcleur {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 100% !important;
+    }
+    
+    /* Force projects content to show */
+    .card,
+    .card__content,
+    #cards {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 100% !important;
+    }
+    
+    /* Force about me content to show */
+    .alert {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 100% !important;
+    }
+    
+    /* Ensure text is visible */
+    h1, h2, h3, h4, h5, h6,
+    p, span, a, li {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        color: inherit !important;
+    }
+    
+    /* Ensure images show */
+    img {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    /* Force all content to show */
+    body * {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    /* Ensure containers work */
+    .container,
+    .container-fluid,
+    .container-fluid-sm,
+    .container-fluid-md-sm {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 10px !important;
+        margin: 0 !important;
+    }
+}
   

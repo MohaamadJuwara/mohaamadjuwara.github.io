@@ -1,5 +1,14 @@
 /* PROJECTS PAGE CSS - COMPLETELY SEPARATE FROM MAIN WEBSITE */
 
+/* CSS Variables for projects page */
+.projects-page {
+    --card-height: 40vw;
+    --card-margin: 4vw;
+    --card-top-offset: 1em;
+    --numcards: 6;
+    --outline-width: 0px;
+}
+
 /* Reset for projects page only */
 .projects-page * {
     margin: 0;

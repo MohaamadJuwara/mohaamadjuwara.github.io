@@ -5,8 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - Mohaamad Juwara</title>
-    <link rel="stylesheet" href="style.css">
     <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         /* Projects page specific styling */
         body {
             background: rgb(58 29 43) !important;
@@ -15,6 +21,7 @@
             padding: 0 !important;
             margin: 0 !important;
             animation: none !important;
+            font-family: sans-serif !important;
         }
         
         /* CSS Variables */
@@ -24,6 +31,35 @@
             --card-top-offset: 1em;
             --numcards: 6;
             --outline-width: 0px;
+        }
+        
+        /* Navigation */
+        nav {
+            background: rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .nav-menu li {
+            padding: 20px;
+        }
+        
+        .nav-menu li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+        
+        .nav-menu li a:hover {
+            color: #ea4020;
         }
         
         /* Cards layout */

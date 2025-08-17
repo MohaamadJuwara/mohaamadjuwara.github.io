@@ -504,4 +504,231 @@ ul.nav-menu li:last-child{
     
    }
 
+/* ========================================== */
+/* SIMPLE MOBILE RESPONSIVENESS */
+/* ========================================== */
+
+/* Make everything work on mobile */
+@media (max-width: 768px) {
+    /* Container responsive */
+    .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+    }
+    
+    /* Navigation mobile friendly */
+    .nav-menu {
+        flex-direction: column !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+    
+    .nav-menu li {
+        width: 100% !important;
+        text-align: center !important;
+        padding: 10px !important;
+    }
+    
+    .nav-menu li a {
+        display: block !important;
+        width: 100% !important;
+        padding: 12px !important;
+        min-height: 44px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    /* Home page mobile */
+    .home-text {
+        width: 100% !important;
+        max-width: 100% !important;
+        text-align: center !important;
+        margin-bottom: 2rem !important;
+    }
+    
+    .home-text h1 {
+        font-size: 40px !important;
+    }
+    
+    .home-text h1::after {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+    
+    .home-text h2 {
+        font-size: 24px !important;
+    }
+    
+    .home-text span {
+        font-size: 18px !important;
+    }
+    
+    .home-text p {
+        font-size: 15px !important;
+        line-height: 28px !important;
+    }
+    
+    .home-text a {
+        padding: 12px 25px !important;
+        font-size: 15px !important;
+        min-height: 44px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    .home-img {
+        max-width: 250px !important;
+        height: auto !important;
+        margin: 0 auto !important;
+    }
+    
+    .animate-charcter {
+        font-size: 120px !important;
+    }
+    
+    /* Contact page mobile */
+    .contact {
+        width: 100% !important;
+        max-width: 90% !important;
+        height: auto !important;
+        min-height: 340px !important;
+        margin: 1rem auto !important;
+    }
+    
+    .contactcleur {
+        font-size: 1.5rem !important;
+        padding: 15px !important;
+    }
+    
+    .contact p {
+        margin: 1rem 0 !important;
+        font-size: 1rem !important;
+    }
+    
+    /* Projects page mobile */
+    header, main {
+        width: 95vw !important;
+    }
+    
+    .card__content {
+        grid-template-areas: "text" "img" !important;
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto auto !important;
+        gap: 1rem !important;
+    }
+    
+    .card__content > div {
+        width: 90% !important;
+        text-align: center !important;
+    }
+    
+    h1 {
+        font-size: 2.5em !important;
+    }
+    
+    h2 {
+        font-size: 2em !important;
+    }
+    
+    /* About Me page mobile */
+    .alert {
+        margin: 1rem !important;
+        padding: 1rem !important;
+    }
+    
+    .img-fluid {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px !important;
+    }
+    
+    .home-text h1 {
+        font-size: 32px !important;
+    }
+    
+    .home-text h2 {
+        font-size: 20px !important;
+    }
+    
+    .home-text span {
+        font-size: 16px !important;
+    }
+    
+    .home-text p {
+        font-size: 14px !important;
+        line-height: 25px !important;
+    }
+    
+    .home-text a {
+        padding: 10px 20px !important;
+        font-size: 14px !important;
+    }
+    
+    .home-img {
+        max-width: 200px !important;
+    }
+    
+    .animate-charcter {
+        font-size: 80px !important;
+    }
+    
+    .nav-menu li a {
+        padding: 8px !important;
+        font-size: 14px !important;
+    }
+    
+    .contact {
+        margin: 0.5rem !important;
+        padding: 1rem !important;
+    }
+    
+    .contactcleur {
+        font-size: 1.3rem !important;
+        padding: 12px !important;
+    }
+    
+    .contact p {
+        font-size: 0.9rem !important;
+        margin: 0.8rem 0 !important;
+    }
+    
+    /* Projects page mobile */
+    header, main {
+        width: 98vw !important;
+    }
+    
+    .card__content > div {
+        width: 95% !important;
+    }
+    
+    h1 {
+        font-size: 2em !important;
+    }
+    
+    h2 {
+        font-size: 1.5em !important;
+    }
+}
+
+/* Force display on mobile */
+@media (max-width: 768px) {
+    .home-text,
+    .home-img,
+    .contact,
+    .nav-menu,
+    .card__content,
+    .alert {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
   

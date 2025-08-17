@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symfony Project Demo - Mohaamad Juwara</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <style>
+        .symfony-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+        }
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+        .tech-stack {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+        .tech-item {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        .tech-item:hover {
+            transform: translateY(-3px);
+        }
+        .tech-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+        .project-structure {
+            background: white;
+            padding: 80px 0;
+        }
+        .structure-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #667eea;
+        }
+        .back-btn {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Back Button -->
+    <a href="../projects.html" class="btn btn-outline-primary back-btn">
+        <i class="fas fa-arrow-left me-2"></i>Back to Projects
+    </a>
+
+    <!-- Hero Section -->
+    <section class="symfony-hero">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <div class="animate__animated animate__fadeInUp">
+                        <h1 class="display-4 fw-bold mb-4">
+                            <i class="fab fa-symfony me-3"></i>
+                            Symfony Web Application
+                        </h1>
+                        <p class="lead mb-4">
+                            A full-stack web application showcasing modern PHP development with Symfony framework, 
+                            featuring user authentication, database management, and professional architecture.
+                        </p>
+                        <div class="d-flex justify-content-center gap-3">
+                            <span class="badge bg-light text-dark fs-6 px-3 py-2">
+                                <i class="fab fa-php me-2"></i>PHP 8+
+                            </span>
+                            <span class="badge bg-light text-dark fs-6 px-3 py-2">
+                                <i class="fas fa-database me-2"></i>Database
+                            </span>
+                            <span class="badge bg-light text-dark fs-6 px-3 py-2">
+                                <i class="fas fa-users me-2"></i>User Auth
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="text-center mb-5">
+                        <h2 class="h1 mb-4">Project Overview</h2>
+                        <p class="lead text-muted">
+                            This Symfony application demonstrates my skills in modern PHP development, 
+                            database design, and web application architecture. Built as part of my 
+                            software development education at ROC Mondriaan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="h1 mb-4">Key Features</h2>
+                    <p class="lead text-muted">Discover what makes this application special</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h4>User Authentication</h4>
+                        <p class="text-muted">
+                            Secure user registration and login system with proper password hashing 
+                            and session management.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4>Database Management</h4>
+                        <p class="text-muted">
+                            Efficient database design with Doctrine ORM, migrations, and 
+                            optimized queries for performance.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4>Responsive Design</h4>
+                        <p class="text-muted">
+                            Modern, mobile-first design using Twig templates and Bootstrap 
+                            for optimal user experience across all devices.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="tech-stack">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="h1 mb-4">Technology Stack</h2>
+                    <p class="lead text-muted">Built with modern, industry-standard technologies</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fab fa-php"></i>
+                        </div>
+                        <h5>PHP 8+</h5>
+                        <p class="text-muted small">Modern PHP with type hints and features</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fab fa-symfony"></i>
+                        </div>
+                        <h5>Symfony 6</h5>
+                        <p class="text-muted small">Enterprise-grade PHP framework</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h5>PostgreSQL</h5>
+                        <p class="text-muted small">Robust relational database</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h5>Twig</h5>
+                        <p class="text-muted small">Flexible template engine</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Structure -->
+    <section class="project-structure">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="h1 mb-4">Project Architecture</h2>
+                    <p class="lead text-muted">Professional code organization and structure</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="structure-item">
+                        <h5><i class="fas fa-folder me-2 text-primary"></i>src/Controller/</h5>
+                        <p class="mb-0">MVC controllers handling user requests and business logic</p>
+                    </div>
+                    <div class="structure-item">
+                        <h5><i class="fas fa-folder me-2 text-primary"></i>src/Entity/</h5>
+                        <p class="mb-0">Data models and database entities with Doctrine ORM</p>
+                    </div>
+                    <div class="structure-item">
+                        <h5><i class="fas fa-folder me-2 text-primary"></i>src/Repository/</h5>
+                        <p class="mb-0">Data access layer for database operations</p>
+                    </div>
+                    <div class="structure-item">
+                        <h5><i class="fas fa-folder me-2 text-primary"></i>templates/</h5>
+                        <p class="mb-0">Twig templates for consistent UI presentation</p>
+                    </div>
+                    <div class="structure-item">
+                        <h5><i class="fas fa-folder me-2 text-primary"></i>config/</h5>
+                        <p class="mb-0>Configuration files for services, routing, and security</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Setup -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="h1 mb-4">Development Setup</h2>
+                    <p class="lead text-muted mb-4">
+                        This project requires a proper development environment to run. 
+                        It's designed to showcase my backend development skills and understanding 
+                        of modern web application architecture.
+                    </p>
+                    <div class="row g-3 justify-content-center">
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-server fa-2x text-primary mb-3"></i>
+                                    <h5>Local Development</h5>
+                                    <p class="small text-muted">
+                                        Requires PHP 8+, Composer, Symfony CLI, and PostgreSQL
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-code fa-2x text-primary mb-3"></i>
+                                    <h5>Source Code</h5>
+                                    <p class="small text-muted">
+                                        Full source code available in the project directory
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h3>Interested in My Backend Skills?</h3>
+                    <p class="mb-4">
+                        This Symfony project demonstrates my ability to build professional, 
+                        scalable web applications. Let's discuss how I can help with your next project!
+                    </p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="../contact.html" class="btn btn-primary btn-lg">
+                            <i class="fas fa-envelope me-2"></i>Get In Touch
+                        </a>
+                        <a href="../projects.html" class="btn btn-outline-primary btn-lg">
+                            <i class="fas fa-code me-2"></i>View All Projects
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-4 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>&copy; 2024 Mohaamad Juwara. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

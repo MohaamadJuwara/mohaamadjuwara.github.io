@@ -1,60 +1,205 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Mohaamad Juwara</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <nav>
-    <div class="container-fluid d-flex justify-content-between">
-        <ul class="nav-menu d-flex text-dark">
-            <li>
-                <img class="img-fluid " width="90px" src="img/logo m-16.png" alt="">
-             </li>
-            <li>
-                <a href="index.html" class="text-dark "> Home</a>
-            </li>
-            <li>
-                <a href="aboutMe.html" class="text-white ">AboutMe</a>
-            </li>
-            <li>
-                <a href="projects.html" class="text-dark">Projects</a>
-            </li>
-           
-            <li>
-                <a href="contact.html" class="text-dark">Contact</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-  <div class="alert alert-primary" role="alert">
-    <img>
-    <source srcset="..." type="image/svg+xml">
-    <img src="img/pic..jpg" class=" img-fluid img-thumbnail animate__animated animate__bounce" alt="..." style="height: 70px; width: 50px;">
-    </img>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logo m-16.png" alt="Logo" width="90" height="auto">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="aboutMe.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <h4 class="alert-heading ">M.Juwara</h4>
-    <h4 class="a"></h4>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-12">
+                    <div class="hero-content">
+                        <h1 class="hero-title">About <span class="highlight">Mohaamad Juwara</span></h1>
+                        <h2 class="hero-subtitle">Full-Stack Developer</h2>
+                        <p class="hero-description">
+                            I'm a passionate and dedicated full-stack developer with expertise in both frontend and backend technologies. 
+                            I enjoy building complete web applications from database design to user interface, solving complex problems through clean, efficient code.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="projects.html" class="btn btn-primary">View My Projects</a>
+                            <a href="contact.html" class="btn btn-outline-primary">Contact Me</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="hero-image">
+                        <img src="img/foto-pro.jpg" alt="Mohaamad Juwara" class="hero-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  </div>
+    <!-- About Section -->
+    <section class="about-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="section-header text-center">
+                        <h2 class="section-title">My Journey</h2>
+                        <div class="section-divider"></div>
+                    </div>
+                    <div class="about-content">
+                        <h3>Background & Education</h3>
+                        <p>
+                            I'm currently pursuing Software Development at ROC Mondriaan, where I'm building a solid foundation 
+                            in programming fundamentals, web development, and software engineering principles. My educational journey 
+                            has equipped me with both theoretical knowledge and practical skills needed in today's tech industry.
+                        </p>
+                        <p>
+                            I'm particularly interested in full-stack web development, where I can combine frontend design skills 
+                            with backend logic to create comprehensive solutions. My approach focuses on writing clean, maintainable 
+                            code and creating user-friendly applications.
+                        </p>
+                        
+                        <h3>Technical Skills</h3>
+                        <p>
+                            I've developed proficiency in several key technologies and continue to expand my skill set through 
+                            hands-on projects and continuous learning.
+                        </p>
+                        <div class="skills-tags">
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">Bootstrap</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">PHP</span>
+                            <span class="skill-tag">Symfony</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">React.js</span>
+                            <span class="skill-tag">Vue.js</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">Database</span>
+                            <span class="skill-tag">Testing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Services Section -->
+    <section class="services-section py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">What I Do</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-description">
+                        As a full-stack developer, I create complete web solutions from database design to user interface, ensuring seamless integration between frontend and backend.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>Full-Stack Development</h4>
+                        <p>
+                            Building complete web applications from frontend to backend. I handle everything from database design 
+                            and API development to responsive user interfaces and user experience optimization.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4>Responsive Design</h4>
+                        <p>
+                            Creating applications that work seamlessly across all devices and screen sizes. 
+                            I prioritize mobile-first design principles and cross-browser compatibility.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4>Backend Development</h4>
+                        <p>
+                            Developing server-side logic and database solutions. I work with PHP frameworks 
+                            and focus on secure, scalable backend architectures.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
- 
-  </div>
+    <!-- Contact CTA Section -->
+    <section class="cta-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h3>Ready to Work Together?</h3>
+                    <p class="mb-4">
+                        I'm always excited to take on new challenges and collaborate on interesting projects. 
+                        Let's discuss how I can contribute to your team or project.
+                    </p>
+                    <a href="contact.html" class="btn btn-primary btn-lg">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>&copy; 2024 Mohaamad Juwara. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-
-  <script src="main.js"></script>
+    <script src="main.js"></script>
 </body>
-
+</html>
 </html>

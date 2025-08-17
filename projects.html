@@ -296,6 +296,149 @@
             max-width: 100%;
             height: auto;
         }
+
+        /* Colorful styling for projects page */
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            color: rgb(255, 255, 255) !important;
+            text-align: center !important;
+            font-size: calc(1em + 0.5vw) !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            animation: gradientShift 8s ease infinite !important;
+            font-family: sans-serif !important;
+        }
+        
+        @keyframes gradientShift {
+            0% { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important; }
+            25% { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important; }
+            50% { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important; }
+            75% { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%) !important; }
+            100% { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important; }
+        }
+        
+        /* Colorful navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.1) !important;
+            backdrop-filter: blur(10px) !important;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+        }
+        
+        .nav-menu li a {
+            text-decoration: none;
+            color: white !important;
+            font-size: 16px;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-menu li a:hover {
+            color: #ffd700 !important;
+            transform: translateY(-2px);
+            text-shadow: 0 2px 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        .nav-menu li a.text-dark {
+            color: #333 !important;
+        }
+        
+        .nav-menu li a.text-white {
+            color: white !important;
+        }
+        
+        /* Colorful headings */
+        h1 {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientText 3s ease infinite;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        @keyframes gradientText {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Colorful cards */
+        .card__content {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%) !important;
+            border: 2px solid transparent !important;
+            background-clip: padding-box !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .card__content:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2) !important;
+            border-color: #ffd700 !important;
+        }
+        
+        /* Colorful buttons */
+        .btn--accent {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24) !important;
+            color: white !important;
+            text-decoration: none;
+            display: inline-block;
+            padding: 0.8em 1.5em !important;
+            border-radius: 25px !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            transition: all 0.3s ease !important;
+            border: none !important;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4) !important;
+        }
+        
+        .btn--accent:hover {
+            background: linear-gradient(45deg, #ee5a24, #ff6b6b) !important;
+            transform: translateY(-2px) scale(1.05) !important;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6) !important;
+        }
+        
+        /* Colorful debug */
+        #debug {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4) !important;
+            border-radius: 50% !important;
+            width: 40px !important;
+            height: 40px !important;
+            border: 2px solid white !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        #debug::after {
+            content: " Show Debug";
+            margin-left: 3em;
+            color: white;
+            white-space: nowrap;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        /* Colorful aside */
+        aside {
+            background: rgba(255, 255, 255, 0.1) !important;
+            backdrop-filter: blur(10px) !important;
+            border-radius: 20px !important;
+            border: 2px solid rgba(255, 255, 255, 0.2) !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+        }
+        
+        aside p {
+            background: linear-gradient(45deg, #ffd700, #ffed4e) !important;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>

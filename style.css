@@ -519,25 +519,27 @@ ul.nav-menu li:last-child{
     
     /* Navigation mobile friendly */
     .nav-menu {
-        flex-direction: column !important;
+        flex-direction: row !important;
         gap: 10px !important;
         width: 100% !important;
+        flex-wrap: wrap !important;
     }
     
     .nav-menu li {
-        width: 100% !important;
+        width: auto !important;
         text-align: center !important;
         padding: 10px !important;
     }
     
     .nav-menu li a {
         display: block !important;
-        width: 100% !important;
+        width: auto !important;
         padding: 12px !important;
         min-height: 44px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
+        white-space: nowrap !important;
     }
     
     /* Home page mobile */
@@ -683,6 +685,7 @@ ul.nav-menu li:last-child{
     .nav-menu li a {
         padding: 8px !important;
         font-size: 14px !important;
+        white-space: nowrap !important;
     }
     
     .contact {

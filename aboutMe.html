@@ -18,18 +18,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me - Mohaamad Juwara</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Removed external CSS to prevent conflicts -->
     <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+        
         /* About Me page specific styling */
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-            color: white !important;
-            text-align: center !important;
-            padding: 0 !important;
-            margin: 0 !important;
-            font-family: 'Inter', sans-serif !important;
-            min-height: 100vh !important;
-            overflow-x: hidden !important;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
         
         /* Hero Section */
@@ -106,7 +119,7 @@
         
         .nav-menu li a {
             text-decoration: none;
-            color: white !important;
+            color: white;
             font-weight: 600;
             transition: all 0.3s ease;
             padding: 0.5rem 1rem;
@@ -116,7 +129,7 @@
         
         .nav-menu li a:hover {
             background: rgba(255, 255, 255, 0.2);
-            color: #ffd700 !important;
+            color: #ffd700;
         }
         
         /* Content Sections */
@@ -169,7 +182,7 @@
         .card-content {
             line-height: 1.8;
             font-size: 1.1rem;
-            color: white !important;
+            color: white;
         }
         
         /* Skills Section */
@@ -186,7 +199,7 @@
             border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
-            color: white !important;
+            color: white;
         }
         
         .skill-item:hover {
@@ -212,13 +225,13 @@
         .cta-text {
             font-size: 1.2rem;
             margin-bottom: 2rem;
-            color: white !important;
+            color: white;
         }
         
         .cta-button {
             display: inline-block;
             background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-            color: white !important;
+            color: white;
             text-decoration: none;
             padding: 1rem 2rem;
             border-radius: 25px;
@@ -232,7 +245,7 @@
         .cta-button:hover {
             transform: translateY(-2px) scale(1.05);
             box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
-            color: white !important;
+            color: white;
         }
         
         /* Enhanced Mobile Responsiveness */
@@ -599,23 +612,78 @@
         }
         
         /* Ensure content is always visible */
-        * {
-            box-sizing: border-box !important;
-        }
-        
         .content-section,
         .about-grid,
         .skills-grid,
         .cta-section {
-            display: block !important;
-            visibility: visible !important;
-            opacity: 1 !important;
+            display: block;
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Debug styles - ensure everything is visible */
+        .hero-section,
+        .content-section,
+        .about-card,
+        .skill-item,
+        .cta-section {
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            background: rgba(0, 0, 0, 0.3);
+            margin: 10px 0;
+            position: relative;
+        }
+        
+        /* Make text more visible */
+        .hero-title,
+        .hero-subtitle,
+        .section-title,
+        .card-title,
+        .card-content,
+        .skill-item,
+        .cta-title,
+        .cta-text {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Ensure navigation is visible */
+        nav {
+            position: relative;
+            z-index: 100;
+            border: 2px solid rgba(255, 255, 255, 0.5);
         }
         
         /* Fix any potential overflow issues */
         body, html {
-            overflow-x: hidden !important;
-            width: 100% !important;
+            overflow-x: hidden;
+            width: 100%;
+        }
+        
+        /* Force display on all devices */
+        @media (max-width: 767px) {
+            .content-section,
+            .about-grid,
+            .skills-grid,
+            .cta-section {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                position: relative !important;
+                z-index: 1 !important;
+            }
+            
+            .hero-section {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+            
+            nav {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
         }
     </style>
 

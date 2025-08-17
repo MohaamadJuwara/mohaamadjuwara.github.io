@@ -4,9 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Projects - Mohaamad Juwara</title>
     <link rel="stylesheet" href="style.css">
-    
+    <link rel="stylesheet" href="projects.css">
+    <style>
+        /* CSS Variables for projects page - completely isolated */
+        .projects-page {
+            --card-height: 40vw;
+            --card-margin: 4vw;
+            --card-top-offset: 1em;
+            --numcards: 6;
+            --outline-width: 0px;
+        }
+        
+        /* Scroll timeline support */
+        @supports (animation-timeline: works) {
+            @scroll-timeline cards-element-scrolls-in-body {
+                source: selector(body);
+                scroll-offsets:
+                    selector(#cards) start 1,
+                    selector(#cards) start 0;
+                start: selector(#cards) start 1;
+                end: selector(#cards) start 0;
+                time-range: 4s;
+            }
+
+            .projects-page .card {
+                --index0: calc(var(--index) - 1);
+                --reverse-index: calc(var(--numcards) - var(--index0));
+                --reverse-index0: calc(var(--reverse-index) - 1);
+            }
+
+            .projects-page .card__content {
+                transform-origin: 50% 0%;
+                will-change: transform;
+                --duration: calc(var(--reverse-index0) * 1s);
+                --delay: calc(var(--index0) * 1s);
+                animation: var(--duration) linear scale var(--delay) forwards;
+                animation-timeline: cards-element-scrolls-in-body;
+            }
+
+            @keyframes scale {
+                to {
+                    transform: scale(calc(1.1 - calc(0.1 * var(--reverse-index))));
+                }
+            }
+        }
+    </style>
 </head>
 <body class="projects-page">
 

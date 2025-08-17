@@ -364,51 +364,51 @@ ul.nav-menu li:last-child{
     --outline-width: 1px;
 }
 
-/* Projects page specific styling */
-body {
+/* Projects page specific styling - ONLY for projects page */
+.projects-page {
     background: rgb(58 29 43);
     color: rgb(255, 255, 255);
     text-align: center;
     font-size: calc(1em + 0.5vw);
 }
 
-header,
-main {
+.projects-page header,
+.projects-page main {
     width: 80vw;
     margin: 0 auto;
 }
 
-header {
+.projects-page header {
     height: 100vh;
     display: grid;
     place-items: center;
 }
 
-h1 {
+.projects-page h1 {
     font-weight: 300;
     font-size: 3.5em;
     color: white;
 }
 
-h2 {
+.projects-page h2 {
     font-weight: 300;
     font-size: 2.5em;
 }
 
-p {
+.projects-page p {
     font-family: sans-serif;
     font-weight: 300;
     line-height: 1.42;
 }
 
-aside {
+.projects-page aside {
     width: 50vw;
     margin: 0 auto;
     text-align: left;
     padding: 2rem;
 }
 
-aside p {
+.projects-page aside p {
     margin-bottom: 1em;
     color: white;
     font-size: 1.2em;

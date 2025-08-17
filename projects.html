@@ -7,25 +7,62 @@
     <title>Projects - Mohaamad Juwara</title>
 
     <style>
-        /* Reset and base styles */
+        /* Original scrollable project page styling */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
-        /* Projects page specific styling */
         body {
-            background: rgb(58 29 43) !important;
-            color: rgb(255, 255, 255) !important;
-            text-align: center !important;
-            padding: 0 !important;
-            margin: 0 !important;
-            animation: none !important;
-            font-family: sans-serif !important;
+            background: rgb(58 29 43);
+            color: rgb(255, 255, 255);
+            text-align: center;
+            font-size: calc(1em + 0.5vw);
         }
         
-        /* CSS Variables */
+        header, main {
+            width: 80vw;
+            margin: 0 auto;
+        }
+        
+        header {
+            height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+        
+        h1 {
+            font-weight: 300;
+            font-size: 3.5em;
+            color: white;
+        }
+        
+        h2 {
+            font-weight: 300;
+            font-size: 2.5em;
+        }
+        
+        p {
+            font-family: sans-serif;
+            font-weight: 300;
+            line-height: 1.42;
+        }
+        
+        aside {
+            width: 50vw;
+            margin: 0 auto;
+            text-align: left;
+            padding: 2rem;
+        }
+        
+        aside p {
+            margin-bottom: 1em;
+            color: white;
+            font-size: 1.2em;
+        }
+        
+        /* Original CSS Variables for scrollable cards */
         :root {
             --card-height: 40vw;
             --card-margin: 4vw;
@@ -34,36 +71,7 @@
             --outline-width: 0px;
         }
         
-        /* Navigation */
-        nav {
-            background: rgba(0, 0, 0, 0.1);
-            padding: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .nav-menu {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .nav-menu li {
-            padding: 20px;
-        }
-        
-        .nav-menu li a {
-            text-decoration: none;
-            color: white;
-            font-size: 16px;
-            text-transform: uppercase;
-        }
-        
-        .nav-menu li a:hover {
-            color: #ea4020;
-        }
-        
-        /* Cards layout */
+        /* Original scrollable cards layout */
         #cards {
             list-style: none;
             outline: calc(var(--outline-width) * 10) solid blue;
@@ -124,19 +132,6 @@
             object-fit: cover;
         }
         
-        .card__content h2 {
-            font-weight: 300;
-            font-size: 3.5em;
-            color: #333;
-        }
-        
-        .card__content p {
-            font-family: sans-serif;
-            font-weight: 300;
-            line-height: 1.42;
-            color: #666;
-        }
-        
         .btn--accent {
             background: rgb(188 87 36);
             color: rgb(255 255 255);
@@ -144,20 +139,47 @@
             display: inline-block;
             padding: 0.5em;
             border-radius: 0.25em;
-            transition: all 0.3s ease;
         }
         
-        .btn--accent:hover {
-            background: rgb(160 70 30);
-            transform: scale(1.05);
+        /* Original scroll timeline support */
+        @supports (animation-timeline: works) {
+            @scroll-timeline cards-element-scrolls-in-body {
+                source: selector(body);
+                scroll-offsets:
+                    selector(#cards) start 1,
+                    selector(#cards) start 0;
+                start: selector(#cards) start 1;
+                end: selector(#cards) start 0;
+                time-range: 4s;
+            }
+
+            .card {
+                --index0: calc(var(--index) - 1);
+                --reverse-index: calc(var(--numcards) - var(--index0));
+                --reverse-index0: calc(var(--reverse-index) - 1);
+            }
+
+            .card__content {
+                transform-origin: 50% 0%;
+                will-change: transform;
+                --duration: calc(var(--reverse-index0) * 1s);
+                --delay: calc(var(--index0) * 1s);
+                animation: var(--duration) linear scale var(--delay) forwards;
+                animation-timeline: cards-element-scrolls-in-body;
+            }
+
+            @keyframes scale {
+                to {
+                    transform: scale(calc(1.1 - calc(0.1 * var(--reverse-index))));
+                }
+            }
         }
         
-        /* Debug */
+        /* Original debug styling */
         #debug {
             position: fixed;
             top: 1em;
             left: 1em;
-            z-index: 1000;
         }
         
         #debug::after {
@@ -171,38 +193,7 @@
             --outline-width: 1px;
         }
         
-        /* Layout */
-        header, main {
-            width: 80vw;
-            margin: 0 auto;
-        }
-        
-        header {
-            height: 100vh;
-            display: grid;
-            place-items: center;
-        }
-        
-        h1 {
-            font-weight: 300;
-            font-size: 3.5em;
-            color: white;
-        }
-        
-        aside {
-            width: 50vw;
-            margin: 0 auto;
-            text-align: left;
-            padding: 2rem;
-        }
-        
-        aside p {
-            margin-bottom: 1em;
-            color: white;
-            font-size: 1.2em;
-        }
-        
-        /* Responsive */
+        /* Responsive adjustments for original layout */
         @media (max-width: 768px) {
             :root {
                 --card-height: 60vw;
@@ -211,6 +202,15 @@
             
             .card__content h2 {
                 font-size: 2.5em;
+            }
+            
+            .card__content p {
+                font-size: 1em;
+            }
+            
+            .btn--accent {
+                padding: 0.8em;
+                font-size: 0.9em;
             }
             
             h1 {
@@ -228,6 +228,15 @@
                 font-size: 2em;
             }
             
+            .card__content p {
+                font-size: 0.9em;
+            }
+            
+            .btn--accent {
+                padding: 0.6em;
+                font-size: 0.8em;
+            }
+            
             h1 {
                 font-size: 1.5em;
             }
@@ -236,37 +245,35 @@
 
 </head>
 <body>
-
-
     <!-- @TODO: Move away from custom props before injecting the polyfill, as it can't handle it -->
     <input type="checkbox" id="debug" />
-        <div class="">
-            <nav>
-                <div class="container-fluid d-flex justify-content-between">
-                    <ul class="nav-menu d-flex text-dark">
-                        <li>
-                            <img class="img-fluid " width="90px" src="img/logo m-16.png" alt="">
-                         </li>
-                        <li>
-                            <a href="index.html" class="text-dark "> Home</a>
-                        </li>
-                        <li>
-                            <a href="aboutMe.html" class="text-dark ">AboutMe</a>
-                        </li>
-                        <li>
-                            <a href="projects.html" class="text-white">Projects</a>
-                        </li>
-                       
-                        <li>
-                            <a href="contact.html" class="text-dark">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <h1>Mijn School Projecten</h1>
-            <p>Scroll down👇</p>
-        </div>
-   
+    <div class="">
+        <nav>
+            <div class="container-fluid d-flex justify-content-between">
+                <ul class="nav-menu d-flex text-dark">
+                    <li>
+                        <img class="img-fluid " width="90px" src="img/logo m-16.png" alt="">
+                     </li>
+                    <li>
+                        <a href="index.html" class="text-dark "> Home</a>
+                    </li>
+                    <li>
+                        <a href="aboutMe.html" class="text-dark ">AboutMe</a>
+                    </li>
+                    <li>
+                        <a href="projects.html" class="text-white">Projects</a>
+                    </li>
+                   
+                    <li>
+                        <a href="contact.html" class="text-dark">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <h1>Mijn School Projecten</h1>
+        <p>Scroll down👇</p>
+    </div>
+ 
     <main>
         <ul id="cards">
             <li class="card" id="card_1">
@@ -351,7 +358,6 @@
         <p>These are some projects i did this year </p>
     </aside>
     
-
     <script src="main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

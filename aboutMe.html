@@ -15,338 +15,217 @@
     crossorigin="anonymous"></script>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me - Mohaamad Juwara</title>
     <style>
+        /* Reset everything */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
-        html, body {
-            width: 100%;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-        
+        /* Basic mobile-first styles */
         body {
             font-family: Arial, sans-serif;
             background: #667eea;
             color: white;
-            line-height: 1.6;
-            padding: 20px;
+            padding: 10px;
             font-size: 16px;
+            line-height: 1.5;
         }
         
+        /* Simple navigation */
         nav {
-            background: rgba(0,0,0,0.3);
+            background: #333;
             padding: 15px;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 8px;
         }
         
         .nav-menu {
             list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin: 0;
-            padding: 0;
+            text-align: center;
         }
         
         .nav-menu li {
-            margin: 0;
-            padding: 0;
+            margin: 10px 0;
         }
         
         .nav-menu a {
             color: white;
             text-decoration: none;
-            padding: 10px 15px;
-            background: rgba(255,255,255,0.2);
+            background: #555;
+            padding: 10px 20px;
             border-radius: 5px;
             display: block;
-            min-height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin: 5px 0;
         }
         
+        /* Hero section */
         .hero-section {
             text-align: center;
-            margin-bottom: 40px;
-            padding: 30px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
-            width: 100%;
+            background: #333;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
         }
         
         .profile-image {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            border: 4px solid #ffd700;
-            margin-bottom: 20px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
+            border: 3px solid #ffd700;
+            margin-bottom: 15px;
         }
         
         .hero-title {
-            font-size: 2.5rem;
+            font-size: 24px;
             color: #ffd700;
-            margin-bottom: 15px;
-            word-wrap: break-word;
+            margin-bottom: 10px;
         }
         
         .hero-subtitle {
-            font-size: 1.2rem;
-            color: #ffed4e;
+            font-size: 16px;
+            color: #ccc;
         }
         
+        /* Content sections */
         .content-section {
-            max-width: 800px;
-            margin: 0 auto;
-            width: 100%;
+            max-width: 100%;
         }
         
         .section-title {
-            font-size: 2rem;
+            font-size: 20px;
             color: #ffd700;
-            margin: 30px 0 20px 0;
+            margin: 25px 0 15px 0;
             text-align: center;
-        }
-        
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            margin-bottom: 30px;
+            background: #333;
+            padding: 10px;
+            border-radius: 5px;
         }
         
         .about-card {
-            background: rgba(255,255,255,0.1);
-            padding: 25px;
-            border-radius: 10px;
-            border: 2px solid rgba(255,255,255,0.3);
-            width: 100%;
+            background: #333;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #555;
         }
         
         .card-title {
-            font-size: 1.3rem;
+            font-size: 18px;
             color: #ffd700;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         
         .card-content {
-            font-size: 1rem;
-            line-height: 1.7;
+            font-size: 14px;
+            line-height: 1.6;
         }
         
         .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
+            display: block;
         }
         
         .skill-item {
-            background: rgba(255,255,255,0.1);
-            padding: 15px;
-            border-radius: 8px;
+            background: #333;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 5px;
             text-align: center;
-            border: 1px solid rgba(255,255,255,0.3);
+            border: 1px solid #555;
         }
         
         .cta-section {
-            background: rgba(255,255,255,0.1);
-            padding: 30px;
-            border-radius: 15px;
+            background: #333;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
             text-align: center;
-            margin: 30px 0;
-            border: 2px solid rgba(255,255,255,0.3);
+            border: 1px solid #555;
         }
         
         .cta-title {
-            font-size: 1.5rem;
+            font-size: 18px;
             color: #ffd700;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         
         .cta-text {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
+            font-size: 14px;
+            margin-bottom: 15px;
         }
         
         .cta-button {
-            display: inline-block;
             background: #ff6b6b;
             color: white;
             text-decoration: none;
             padding: 12px 25px;
             border-radius: 25px;
             font-weight: bold;
-            font-size: 1rem;
-            min-height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-size: 16px;
+            display: inline-block;
         }
         
-        /* Mobile-first responsive design */
-        @media (max-width: 768px) {
+        /* Mobile optimizations */
+        @media (max-width: 480px) {
             body {
-                padding: 15px;
+                padding: 8px;
                 font-size: 14px;
             }
             
             .hero-title {
-                font-size: 2rem;
+                font-size: 22px;
             }
             
             .hero-subtitle {
-                font-size: 1rem;
+                font-size: 14px;
             }
             
             .section-title {
-                font-size: 1.5rem;
-            }
-            
-            .nav-menu {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .nav-menu a {
-                text-align: center;
-                width: 100%;
-            }
-            
-            .hero-section {
-                padding: 20px;
-                margin-bottom: 30px;
-            }
-            
-            .profile-image {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .content-section {
-                padding: 0;
+                font-size: 18px;
             }
             
             .about-card {
-                padding: 20px;
-            }
-            
-            .skills-grid {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-            
-            .cta-section {
-                padding: 20px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-                font-size: 13px;
-            }
-            
-            .hero-title {
-                font-size: 1.8rem;
-            }
-            
-            .section-title {
-                font-size: 1.3rem;
-            }
-            
-            .about-card {
-                padding: 15px;
-            }
-            
-            .skills-grid {
-                gap: 8px;
-            }
-            
-            .skill-item {
                 padding: 12px;
             }
             
+            .card-title {
+                font-size: 16px;
+            }
+            
+            .card-content {
+                font-size: 13px;
+            }
+            
             .cta-section {
                 padding: 15px;
+            }
+            
+            .cta-title {
+                font-size: 16px;
+            }
+            
+            .cta-text {
+                font-size: 13px;
             }
             
             .cta-button {
                 padding: 10px 20px;
-                font-size: 0.9rem;
+                font-size: 14px;
             }
         }
         
-        @media (max-width: 360px) {
-            body {
-                padding: 8px;
-                font-size: 12px;
-            }
-            
-            .hero-title {
-                font-size: 1.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 0.9rem;
-            }
-            
-            .section-title {
-                font-size: 1.2rem;
-            }
-            
-            .about-card {
-                padding: 12px;
-            }
-            
-            .cta-section {
-                padding: 12px;
-            }
-        }
-        
-        /* Force display on mobile */
-        @media (max-width: 768px) {
-            .hero-section,
-            .content-section,
-            .about-grid,
-            .skills-grid,
-            .cta-section {
-                display: block !important;
-                visibility: visible !important;
-                opacity: 1 !important;
-            }
-            
-            nav {
-                display: block !important;
-                visibility: visible !important;
-                opacity: 1 !important;
-            }
-        }
-        
-        /* Debug borders for mobile */
-        @media (max-width: 768px) {
-            .hero-section,
-            .content-section,
-            .about-card,
-            .skill-item,
-            .cta-section {
-                border: 2px solid rgba(255, 255, 255, 0.5) !important;
-                background: rgba(0, 0, 0, 0.3) !important;
-            }
+        /* Ensure everything is visible */
+        .hero-section,
+        .content-section,
+        .about-card,
+        .skill-item,
+        .cta-section {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
         }
     </style>
 
@@ -372,6 +251,113 @@
                 <a href="contact.html" class="text-dark">Contact</a>
             </li>
         </ul>
+
+
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <img src="img/foto-pro.jpg" alt="Mohaamad Juwara" class="profile-image">
+        <h1 class="hero-title">Mohaamad Juwara</h1>
+        <p class="hero-subtitle">Passionate Web Developer & Creative Problem Solver</p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="content-section">
+        <!-- About Me Section -->
+        <h2 class="section-title">🌟 About Me</h2>
+        <div class="about-card">
+            <h3 class="card-title">Who I Am</h3>
+            <p class="card-content">
+                I'm a dedicated student with a passion for web development and creative problem-solving. 
+                I love turning ideas into reality through code and enjoy learning new technologies. 
+                When I'm not coding, you'll find me exploring new programming concepts and working on 
+                exciting projects that challenge my skills.
+            </p>
+        </div>
+        
+        <div class="about-card">
+            <h3 class="card-title">What Drives Me</h3>
+            <p class="card-content">
+                I'm motivated by the endless possibilities of web development and the ability to create 
+                interactive experiences that people can enjoy. I believe in clean, efficient code and 
+                user-friendly design. Every project is an opportunity to learn something new and push 
+                my boundaries as a developer.
+            </p>
+        </div>
+
+        <!-- Skills Section -->
+        <h2 class="section-title">🛠️ Skills & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <strong>Frontend Development</strong><br>
+                HTML, CSS, JavaScript
+            </div>
+            <div class="skill-item">
+                <strong>Backend Development</strong><br>
+                PHP, Symfony Framework
+            </div>
+            <div class="skill-item">
+                <strong>Web Design</strong><br>
+                Responsive Design, UI/UX
+            </div>
+            <div class="skill-item">
+                <strong>Development Tools</strong><br>
+                Git, VS Code, Bootstrap
+            </div>
+            <div class="skill-item">
+                <strong>Game Development</strong><br>
+                Interactive Web Games
+            </div>
+            <div class="skill-item">
+                <strong>Problem Solving</strong><br>
+                Creative Solutions, Debugging
+            </div>
+        </div>
+
+        <!-- Current Work Section -->
+        <h2 class="section-title">💻 What I'm Working On</h2>
+        <div class="about-card">
+            <h3 class="card-title">Current Projects</h3>
+            <p class="card-content">
+                I'm currently developing interactive web games and applications, including Whack-A-Mole, 
+                Escape Room puzzles, and a comprehensive web catalog. Each project teaches me new 
+                techniques and helps me become a better developer. I'm always exploring new ways to 
+                create engaging user experiences.
+            </p>
+        </div>
+        
+        <div class="about-card">
+            <h3 class="card-title">Learning Goals</h3>
+            <p class="card-content">
+                I'm constantly expanding my knowledge in modern web technologies, advanced JavaScript 
+                frameworks, and mobile app development. I'm passionate about staying current with 
+                industry trends and best practices to deliver the best possible solutions.
+            </p>
+        </div>
+
+        <!-- Personal Section -->
+        <h2 class="section-title">🎯 Personal Interests</h2>
+        <div class="about-card">
+            <h3 class="card-title">Beyond Coding</h3>
+            <p class="card-content">
+                When I'm not immersed in code, I enjoy exploring new technologies, participating in 
+                coding challenges, and collaborating with other developers. I believe in continuous 
+                learning and sharing knowledge with the community. I'm always excited to take on new 
+                challenges and help bring innovative ideas to life.
+            </p>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta-section">
+            <h3 class="cta-title">Ready to Work Together?</h3>
+            <p class="card-content">
+                I'm always interested in new opportunities and exciting projects. 
+                Whether you have a project in mind or just want to connect, let's talk!
+            </p>
+            <a href="contact.html" class="cta-button">Get In Touch</a>
+        </div>
+
     </div>
 </nav>
   <div class="alert alert-primary" role="alert">

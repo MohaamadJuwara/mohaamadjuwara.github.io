@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Apple
+comment0.text=\n\ Apple\ -\ subklasse\ van\ Block.\n\ \n\ Een\ appel\ die\ Bobby\ kan\ opeten\ om\ te\ groeien.\n\ Gebruikt\ het\ plaatje\ 'apple.png'.\n\ \n\ De\ collision()\ methode\ wordt\ OVERSCHREVEN\ (override)\:\n\ -\ De\ slang\ mag\ NIET\ doodgaan\ als\ hij\ een\ appel\ eet.\n\ -\ In\ plaats\ daarvan\ groeit\ de\ slang\ en\ verplaatst\ de\ appel.\n
+comment1.params=world
+comment1.target=void\ collision(SnakeWorld)
+comment1.text=\n\ collision()\ -\ overschrijft\ de\ methode\ uit\ Block.\n\ \n\ Wanneer\ Bobby\ een\ appel\ eet\:\n\ 1.\ Laat\ de\ slang\ groeien\ met\ 2\ stukjes\ (grow(2))\n\ 2.\ Verhoog\ de\ score\ met\ 1\n\ 3.\ Verplaats\ de\ appel\ naar\ een\ willekeurige\ nieuwe\ positie\n\ 4.\ Speel\ het\ slurp\ geluid\ af\n\ 5.\ Controleer\ of\ de\ score\ 10\ is\ ->\ spel\ gewonnen\n\ \n\ @param\ world\ het\ huidige\ SnakeWorld\ object\n
+numComments=2

@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Block
+comment0.text=\n\ Block\ -\ subklasse\ van\ Actor.\n\ \n\ Dit\ is\ de\ basisklasse\ voor\ alle\ blokken\ in\ het\ spel\:\n\ \ \ -\ Border\ \ (rand\ blokken)\n\ \ \ -\ SnakeBody\ (lichaam\ van\ de\ slang)\n\ \ \ -\ Apple\ \ \ (appels)\n\ \n\ De\ collision()\ methode\ stopt\ het\ spel\ wanneer\ Bobby\ botst.\n
+comment1.params=world
+comment1.target=void\ collision(SnakeWorld)
+comment1.text=\n\ collision()\ -\ wordt\ aangeroepen\ wanneer\ Bobby\ botst\ met\ een\ Block.\n\ Roept\ de\ dead()\ methode\ aan\ in\ SnakeWorld\ zodat\ het\ spel\ stopt.\n\ \n\ @param\ world\ het\ huidige\ SnakeWorld\ object\n
+numComments=2

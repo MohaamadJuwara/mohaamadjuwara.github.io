@@ -1,0 +1,4 @@
+#BlueJ class context
+comment0.target=Border
+comment0.text=\n\ Border\ -\ subklasse\ van\ Block.\n\ \n\ Rand\ blokken\ die\ de\ grenzen\ van\ het\ spel\ vormen.\n\ Gebruikt\ het\ plaatje\ 'green.png'.\n\ \n\ Als\ Bobby\ botst\ met\ een\ Border,\ wordt\ collision()\ aangeroepen\n\ (overge\u00EBrfd\ van\ Block)\ en\ stopt\ het\ spel.\n
+numComments=1

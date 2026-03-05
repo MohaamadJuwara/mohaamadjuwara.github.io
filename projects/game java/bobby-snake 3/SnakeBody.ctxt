@@ -1,0 +1,4 @@
+#BlueJ class context
+comment0.target=SnakeBody
+comment0.text=\n\ SnakeBody\ -\ subklasse\ van\ Block.\n\ \n\ Elk\ stukje\ van\ de\ slang\ is\ een\ SnakeBody\ object.\n\ -\ Het\ hoofd\ van\ Bobby\ gebruikt\ het\ plaatje\ 'bobby.png'\n\ -\ De\ staart\ gebruikt\ het\ plaatje\ 'tail.png'\n\ \n\ De\ slang\ in\ het\ spel\ is\ een\ LinkedList\ van\ SnakeBody\ objecten.\n\ Het\ laatste\ element\ in\ de\ lijst\ is\ altijd\ het\ hoofd.\n
+numComments=1

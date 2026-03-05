@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=SnakeWorld
+comment0.text=\n\ SnakeWorld\ -\ de\ wereld\ voor\ het\ Bobby\ Snake\ spel.\n\ \n\ Volgt\ alle\ stappen\ van\ de\ opdracht\:\n\ -\ Wereld\:\ 25\ blokken\ breed,\ 20\ blokken\ hoog,\ blokgrootte\ 32\n\ -\ Achtergrond\:\ bg.jpg\n\ -\ Rand\ tekenen\ met\ Border\ blokken\ (twee\ for-loops)\n\ -\ Bobby's\ hoofd\ aanmaken\ als\ SnakeBody\ in\ een\ LinkedList\n\ -\ Bobby\ beweegt\ via\ dx\ en\ dy\ in\ act()\n\ -\ tailCounter\ beperkt\ de\ grootte\ van\ de\ slang\n\ -\ changeDirection()\ reageert\ op\ pijltjestoetsen\n\ -\ dead\ eigenschap\ stopt\ het\ spel\ bij\ botsing\n\ -\ Apple\ wordt\ willekeurig\ geplaatst\n\ -\ Score\ bijhouden\ met\ Label\ (score\ bijhouden\ opdracht)\n\ -\ Spel\ stopt\ na\ 10\ appels\ (einde\ opdracht)\n
+comment1.params=
+comment1.target=SnakeWorld()
+comment1.text=\n\ Constructor\ van\ SnakeWorld.\n\ Wereld\:\ 25\ breed,\ 20\ hoog,\ blokgrootte\ 32.\n\ Achtergrond\:\ bg.jpg\n
+comment2.params=
+comment2.target=void\ drawBorder()
+comment2.text=\n\ drawBorder()\ -\ tekent\ de\ rand\ rondom\ het\ speelveld.\n\ \n\ Gebruikt\ twee\ for-loops\:\n\ 1.\ Horizontale\ randen\:\ boven\ en\ onder\n\ 2.\ Verticale\ randen\:\ links\ en\ rechts\n
+comment3.params=
+comment3.target=void\ act()
+comment3.text=\n\ act()\ -\ wordt\ voortdurend\ aangeroepen\ door\ Greenfoot.\n\ \n\ Stopt\ direct\ als\ Bobby\ dood\ is.\n\ Anders\:\n\ 1.\ Verander\ richting\ op\ basis\ van\ toetsen\n\ 2.\ Beweeg\ de\ staart\ (of\ verklein\ tailCounter)\n\ 3.\ Vervang\ het\ huidige\ hoofd\ door\ tail.png\n\ 4.\ Controleer\ botsingen\ op\ de\ nieuwe\ positie\n\ 5.\ Voeg\ het\ nieuwe\ hoofd\ toe\n
+comment4.params=
+comment4.target=void\ changeDirection()
+comment4.text=\n\ changeDirection()\ -\ verandert\ de\ richting\ van\ Bobby\ op\ basis\ van\ pijltjestoetsen.\n\ \n\ Bobby\ mag\ NIET\ naar\ zichzelf\ terugkeren\:\n\ -\ links\:\ alleen\ als\ dx\ \=\=\ 0\ (Bobby\ beweegt\ niet\ horizontaal)\n\ -\ rechts\:\ alleen\ als\ dx\ \=\=\ 0\n\ -\ omhoog\:\ alleen\ als\ dy\ \=\=\ 0\ (Bobby\ beweegt\ niet\ verticaal)\n\ -\ omlaag\:\ alleen\ als\ dy\ \=\=\ 0\n
+comment5.params=
+comment5.target=void\ dead()
+comment5.text=\n\ dead()\ -\ stopt\ het\ spel\ door\ de\ dead\ eigenschap\ op\ true\ te\ zetten.\n\ Wordt\ aangeroepen\ vanuit\ Block.collision()\n
+comment6.params=amount
+comment6.target=void\ grow(int)
+comment6.text=\n\ grow()\ -\ laat\ de\ slang\ groeien.\n\ Wordt\ aangeroepen\ vanuit\ Apple.collision()\n\ \n\ @param\ amount\ het\ aantal\ stukjes\ waarmee\ de\ slang\ groeit\n
+comment7.params=
+comment7.target=void\ addScore()
+comment7.text=\n\ addScore()\ -\ verhoogt\ de\ score\ met\ 1\ en\ update\ het\ Label.\n\ Wordt\ aangeroepen\ vanuit\ Apple.collision()\ (opdracht\:\ score\ bijhouden)\n\ \n\ Als\ de\ score\ 10\ bereikt\:\ spel\ gewonnen\!\ (opdracht\:\ spel\ stoppen\ na\ 10\ appels)\n
+numComments=8

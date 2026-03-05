@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Crab
+comment0.text=\n\ Crab\ -\ subklasse\ van\ Animal.\n\ Opdracht\ 2\:\ beweegt\ met\ pijltjestoetsen\n\ Opdracht\ 3\:\ eet\ vissen\ op\n\ Opdracht\ 4\:\ houdt\ score\ bij\ via\ Label\n
+comment1.params=
+comment1.target=Crab()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ eatFish()
+comment4.params=label
+comment4.target=void\ setLabel(Label)
+numComments=5

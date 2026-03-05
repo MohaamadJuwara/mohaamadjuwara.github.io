@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=Animal
+comment0.text=\n\ Animal\ -\ subklasse\ van\ Actor.\n\ Basisklasse\ voor\ Fish\ en\ Crab.\n
+comment1.params=
+comment1.target=void\ act()
+numComments=2

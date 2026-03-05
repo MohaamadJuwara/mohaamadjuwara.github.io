@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=FishWorld
+comment0.text=\n\ FishWorld\ -\ de\ wereld\ voor\ het\ little-fish\ scenario.\n\ Grootte\:\ 800\ bij\ 800.\ Achtergrond\:\ blauw.\n
+comment1.params=
+comment1.target=FishWorld()
+comment2.params=
+comment2.target=void\ prepare()
+numComments=3

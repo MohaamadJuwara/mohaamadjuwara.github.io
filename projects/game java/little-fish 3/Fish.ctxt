@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Fish
+comment0.text=\n\ Fish\ -\ subklasse\ van\ Animal.\n\ Opdracht\ 7\:\ beweegt\ met\ move(4)\ in\ act()\n\ Opdracht\ 8\:\ draait\ aan\ de\ randen\ via\ hitEdge()\n
+comment1.params=
+comment1.target=Fish()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ hitEdge()
+numComments=4

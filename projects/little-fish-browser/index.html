@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Little Fish - Browser Edition</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="game-page">
+    <h1>Little Fish - Browser Edition</h1>
+    <p class="subtitle">Use Left/Right to move and Up/Down to turn. Eat all fish!</p>
+
+    <div class="hud">
+      <span id="score">Score: 0</span>
+      <button id="restart" type="button">Restart</button>
+    </div>
+
+    <canvas id="gameCanvas" width="800" height="800" aria-label="Little Fish game canvas"></canvas>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>

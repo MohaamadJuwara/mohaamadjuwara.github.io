@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Label
+comment0.text=\n\ Label\ -\ toont\ een\ score\ in\ de\ wereld.\n\ Opdracht\ 4\ (deel\ 2)\:\ scorebord\ dat\ bijhoudt\ hoeveel\ vissen\ opgegeten\ zijn.\n
+comment1.params=value\ fontSize
+comment1.target=Label(int,\ int)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=value
+comment3.target=void\ setValue(int)
+comment4.params=
+comment4.target=void\ updateImage()
+numComments=5

@@ -14,6 +14,19 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
     <style>
+        :root {
+            --symfony-primary: #667eea;
+            --symfony-primary-dark: #4f66d1;
+            --symfony-text: #1f2937;
+            --symfony-muted: #5f6b7a;
+        }
+        .symfony-demo-page {
+            color: var(--symfony-text);
+            background-color: #f7f8fc;
+        }
+        .symfony-demo-page .text-muted {
+            color: var(--symfony-muted) !important;
+        }
         .symfony-hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -78,11 +91,50 @@
             top: 100px;
             left: 20px;
             z-index: 1000;
+            background: #ffffff;
+            border-color: var(--symfony-primary);
+            color: var(--symfony-primary);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+        }
+        .back-btn:hover {
+            background: var(--symfony-primary);
+            color: #ffffff;
+            border-color: var(--symfony-primary);
+        }
+        @media (max-width: 768px) {
+            .back-btn {
+                position: static;
+                margin: 16px;
+            }
+        }
+        .symfony-demo-page .btn-primary {
+            background-color: var(--symfony-primary);
+            border-color: var(--symfony-primary);
+            color: #ffffff;
+        }
+        .symfony-demo-page .btn-primary:hover {
+            background-color: var(--symfony-primary-dark);
+            border-color: var(--symfony-primary-dark);
+            color: #ffffff;
+        }
+        .symfony-demo-page .btn-outline-primary {
+            color: var(--symfony-primary);
+            border-color: var(--symfony-primary);
+        }
+        .symfony-demo-page .btn-outline-primary:hover {
+            background-color: var(--symfony-primary);
+            border-color: var(--symfony-primary);
+            color: #ffffff;
+        }
+        .feature-card h4,
+        .tech-item h5,
+        .structure-item h5 {
+            color: var(--symfony-text);
         }
     </style>
 </head>
 
-<body>
+<body class="symfony-demo-page">
     <!-- Back Button -->
     <a href="../projects.html" class="btn btn-outline-primary back-btn">
         <i class="fas fa-arrow-left me-2"></i>Back to Projects
@@ -119,23 +171,7 @@
         </div>
     </section>
 
-    <!-- Project Overview -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="text-center mb-5">
-                        <h2 class="h1 mb-4">Project Overview</h2>
-                        <p class="lead text-muted">
-                            This Symfony application demonstrates my skills in modern PHP development, 
-                            database design, and web application architecture. Built as part of my 
-                            software development education at ROC Mondriaan.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+   
 
     <!-- Key Features -->
     <section class="py-5 bg-light">
@@ -220,8 +256,8 @@
                         <div class="tech-icon">
                             <i class="fas fa-database"></i>
                         </div>
-                        <h5>PostgreSQL</h5>
-                        <p class="text-muted small">Robust relational database</p>
+                        <h5>MySQL / PostgreSQL</h5>
+                        <p class="text-muted small">Relational database integration with Doctrine ORM</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -291,7 +327,7 @@
                                     <i class="fas fa-server fa-2x text-primary mb-3"></i>
                                     <h5>Local Development</h5>
                                     <p class="small text-muted">
-                                        Requires PHP 8+, Composer, Symfony CLI, and PostgreSQL
+                                        Requires PHP 8+, Composer, Symfony CLI, and MySQL or PostgreSQL
                                     </p>
                                 </div>
                             </div>
@@ -300,9 +336,9 @@
                             <div class="card h-100">
                                 <div class="card-body text-center">
                                     <i class="fas fa-code fa-2x text-primary mb-3"></i>
-                                    <h5>Source Code</h5>
+                                    <h5>Project Access</h5>
                                     <p class="small text-muted">
-                                        Full source code available in the project directory
+                                        Technical implementation details and code samples can be shared on request.
                                     </p>
                                 </div>
                             </div>
@@ -341,7 +377,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
-                    <p>&copy; Mohaamad Juwara. All rights reserved.</p>
+                    <p>&copy; 2024 Mohaamad Juwara. All rights reserved.</p>
                 </div>
             </div>
         </div>

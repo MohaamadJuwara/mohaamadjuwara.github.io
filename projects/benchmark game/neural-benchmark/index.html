@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEURAL — Benchmark Your Brain</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #050508;
+  --surface: #0d0d14;
+  --card: #12121c;
+  --border: rgba(255,255,255,0.07);
+  --border-bright: rgba(255,255,255,0.15);
+  --cyan: #00f5ff;
+  --green: #00ff88;
+  --orange: #ff8c00;
+  --red: #ff3355;
+  --purple: #b44fff;
+  --yellow: #ffe100;
+  --text: #e8e8f0;
+  --muted: rgba(232,232,240,0.4);
+  --mono: 'JetBrains Mono', monospace;
+  --sans: 'Space Grotesk', sans-serif;
+}
+
+html, body { height: 100%; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* ─── SCANLINE OVERLAY ─── */
+body::after {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 9999;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+}
+
+/* ─── GRID BACKGROUND ─── */
+body::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(0,245,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,245,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ─── SCREENS ─── */
+.screen { display: none; min-height: 100vh; flex-direction: column; }
+.screen.active { display: flex; }
+
+/* ════════════════════ HOME SCREEN ════════════════════ */
+#home { align-items: stretch; }
+
+.nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 48px; border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+}
+
+.brand {
+  font-family: var(--mono);
+  font-size: 1.1rem; font-weight: 700;
+  letter-spacing: 4px; color: var(--cyan);
+  text-transform: uppercase;
+}
+
+.brand-dot { color: var(--green); }
+
+.nav-tag {
+  font-family: var(--mono); font-size: 0.7rem;
+  color: var(--muted); letter-spacing: 2px;
+  border: 1px solid var(--border); padding: 6px 12px; border-radius: 4px;
+}
+
+.home-body {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; padding: 64px 32px 48px;
+}
+
+.hero-eyebrow {
+  font-family: var(--mono); font-size: 0.75rem;
+  letter-spacing: 4px; color: var(--cyan); text-transform: uppercase;
+  margin-bottom: 20px; opacity: 0.8;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 700; line-height: 0.95;
+  letter-spacing: -3px; text-align: center;
+  margin-bottom: 24px;
+}
+
+.hero-title .line2 {
+  display: block;
+  background: linear-gradient(90deg, var(--cyan), var(--green));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+.hero-sub {
+  font-family: var(--mono); font-size: 0.85rem;
+  color: var(--muted); text-align: center; max-width: 480px;
+  line-height: 1.8; margin-bottom: 64px; letter-spacing: 0.5px;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px; width: 100%; max-width: 960px;
+}
+
+@media (max-width: 700px) {
+  .games-grid { grid-template-columns: 1fr; }
+  .nav { padding: 20px 24px; }
+}
+
+.game-card {
+  position: relative; overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 28px 24px 24px;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.game-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  opacity: 0; transition: opacity 0.2s;
+}
+
+.game-card:hover {
+  border-color: var(--border-bright);
+  transform: translateY(-3px);
+}
+
+.game-card:hover::before { opacity: 1; }
+
+.card-c1::before { background: linear-gradient(90deg, var(--cyan), var(--green)); box-shadow: 0 0 20px var(--cyan); }
+.card-c2::before { background: linear-gradient(90deg, var(--purple), #ff6b9d); }
+.card-c3::before { background: linear-gradient(90deg, var(--orange), var(--yellow)); }
+.card-c4::before { background: linear-gradient(90deg, var(--green), var(--cyan)); }
+.card-c5::before { background: linear-gradient(90deg, var(--red), var(--orange)); }
+.card-c6::before { background: linear-gradient(90deg, var(--yellow), var(--green)); }
+
+.card-num {
+  font-family: var(--mono); font-size: 0.65rem;
+  color: var(--muted); letter-spacing: 3px; margin-bottom: 16px;
+}
+
+.card-icon { font-size: 1.8rem; margin-bottom: 12px; display: block; }
+
+.card-title { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; }
+
+.card-desc {
+  font-family: var(--mono); font-size: 0.75rem;
+  color: var(--muted); line-height: 1.7;
+}
+
+.card-best {
+  margin-top: 16px; padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-family: var(--mono); font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.card-best span { color: var(--cyan); font-weight: 700; }
+
+/* ════════════════════ GAME LAYOUT ════════════════════ */
+.game-screen {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 32px 24px; position: relative;
+  min-height: 100vh;
+}
+
+.back-btn {
+  position: absolute; top: 28px; left: 28px;
+  font-family: var(--mono); font-size: 0.75rem;
+  color: var(--muted); background: var(--card);
+  border: 1px solid var(--border); padding: 8px 16px;
+  border-radius: 6px; cursor: pointer; letter-spacing: 1px;
+  transition: color 0.15s, border-color 0.15s;
+}
+.back-btn:hover { color: var(--text); border-color: var(--border-bright); }
+
+.g-label {
+  font-family: var(--mono); font-size: 0.7rem;
+  letter-spacing: 4px; color: var(--muted);
+  text-transform: uppercase; margin-bottom: 16px;
+}
+
+.g-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700; letter-spacing: -1px;
+  text-align: center; margin-bottom: 12px; line-height: 1.1;
+}
+
+.g-sub {
+  font-family: var(--mono); font-size: 0.82rem;
+  color: var(--muted); text-align: center;
+  margin-bottom: 32px; line-height: 1.8;
+}
+
+.big-num {
+  font-family: var(--mono);
+  font-size: clamp(4rem, 12vw, 9rem);
+  font-weight: 700; line-height: 1;
+  letter-spacing: -4px;
+}
+
+.unit-label {
+  font-family: var(--mono); font-size: 0.85rem;
+  color: var(--muted); letter-spacing: 3px; margin-top: 8px;
+}
+
+.action-btn {
+  margin-top: 32px;
+  font-family: var(--mono); font-size: 0.85rem;
+  font-weight: 500; letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--bg); background: var(--cyan);
+  border: none; padding: 14px 40px;
+  border-radius: 6px; cursor: pointer;
+  transition: opacity 0.15s, transform 0.15s;
+}
+.action-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+.action-btn.secondary {
+  background: transparent; color: var(--muted);
+  border: 1px solid var(--border); margin-left: 12px;
+}
+.action-btn.secondary:hover { color: var(--text); border-color: var(--border-bright); }
+
+/* ═══ REACTION TIME ═══ */
+#rt-zone {
+  width: min(560px, 92vw); height: 280px;
+  border-radius: 16px; border: 2px solid var(--border);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  cursor: pointer; user-select: none;
+  transition: background 0.08s, border-color 0.08s;
+  gap: 8px;
+}
+#rt-zone.idle { background: var(--card); }
+#rt-zone.waiting { background: #1a0005; border-color: var(--red); }
+#rt-zone.go { background: #001a0a; border-color: var(--green); }
+#rt-zone.early { background: #1a0005; border-color: var(--red); }
+
+#rt-zone .rt-icon { font-size: 2.5rem; }
+#rt-zone .rt-msg { font-size: 1.1rem; font-weight: 600; font-family: var(--mono); }
+#rt-zone .rt-sub { font-size: 0.75rem; color: var(--muted); font-family: var(--mono); }
+
+.rt-dots {
+  display: flex; gap: 8px; margin: 16px 0;
+}
+.rt-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--border);
+  transition: background 0.2s;
+}
+.rt-dot.done { background: var(--green); box-shadow: 0 0 8px var(--green); }
+
+/* ═══ SEQUENCE MEMORY ═══ */
+.seq-wrap { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.seq-level-row {
+  display: flex; gap: 6px;
+}
+.seq-pip {
+  width: 24px; height: 6px; border-radius: 3px;
+  background: var(--border); transition: background 0.3s;
+}
+.seq-pip.done { background: var(--purple); box-shadow: 0 0 8px var(--purple); }
+
+#seq-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.sq {
+  width: 88px; height: 88px; border-radius: 12px;
+  background: var(--card); border: 2px solid var(--border);
+  cursor: pointer; transition: all 0.12s;
+}
+.sq:hover { border-color: var(--border-bright); }
+.sq.flash { background: var(--purple); border-color: var(--purple); box-shadow: 0 0 24px var(--purple); }
+.sq.hit { background: var(--green); border-color: var(--green); }
+.sq.miss { background: var(--red); border-color: var(--red); }
+
+/* ═══ AIM TRAINER ═══ */
+#aim-arena {
+  width: min(640px, 94vw); height: 380px;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; position: relative;
+  overflow: hidden; cursor: crosshair;
+}
+
+.aim-target {
+  position: absolute; border-radius: 50%;
+  transform: translate(-50%, -50%);
+  cursor: crosshair;
+  animation: targetPop 0.15s ease;
+}
+@keyframes targetPop { from { transform: translate(-50%,-50%) scale(0); } to { transform: translate(-50%,-50%) scale(1); } }
+
+.aim-ring-outer { position: absolute; inset: 0; border-radius: 50%; background: var(--red); }
+.aim-ring-mid { position: absolute; inset: 20%; border-radius: 50%; background: var(--orange); }
+.aim-ring-inner { position: absolute; inset: 40%; border-radius: 50%; background: var(--yellow); }
+
+.aim-hud {
+  display: flex; gap: 40px; margin-bottom: 16px; align-items: flex-end;
+}
+.aim-stat { text-align: center; }
+.aim-stat .v { font-family: var(--mono); font-size: 2.2rem; font-weight: 700; }
+.aim-stat .l { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); letter-spacing: 2px; margin-top: 2px; }
+
+/* ═══ NUMBER MEMORY ═══ */
+#num-display {
+  font-family: var(--mono); font-weight: 700;
+  font-size: clamp(2.5rem, 9vw, 5.5rem);
+  letter-spacing: 10px; color: var(--text);
+  min-height: 80px; text-align: center;
+}
+
+.num-bar-wrap { width: min(400px, 90vw); margin: 16px 0; }
+.num-bar-bg { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.num-bar-fill { height: 100%; background: var(--cyan); border-radius: 2px; transition: width linear; }
+
+#num-input {
+  font-family: var(--mono); font-size: 2rem; font-weight: 500;
+  background: var(--card); border: 2px solid var(--border);
+  color: var(--text); padding: 16px 24px; border-radius: 10px;
+  text-align: center; outline: none; width: min(340px, 90vw);
+  letter-spacing: 8px;
+  transition: border-color 0.2s;
+}
+#num-input:focus { border-color: var(--cyan); }
+
+/* ═══ TYPING ═══ */
+.typing-hud { display: flex; gap: 48px; margin-bottom: 24px; }
+.typing-stat .v { font-family: var(--mono); font-size: 2.4rem; font-weight: 700; color: var(--cyan); }
+.typing-stat .l { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); letter-spacing: 2px; margin-top: 2px; }
+
+#type-box {
+  width: min(720px, 94vw);
+  max-height: 168px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px 28px;
+  font-family: var(--mono); font-size: 1rem;
+  line-height: 2; color: var(--muted);
+  cursor: text; user-select: none;
+  transition: border-color 0.2s;
+  text-align: left;
+  word-break: break-word;
+  white-space: normal;
+}
+#type-box.active { border-color: var(--border-bright); }
+#type-box .c { transition: color 0.05s; display: inline; }
+#type-box .c.ok { color: var(--text); }
+#type-box .c.err { color: var(--red); background: rgba(255,51,85,0.1); border-radius: 2px; }
+#type-box .c.cur { border-left: 2px solid var(--cyan); animation: curBlink 1s step-end infinite; }
+@keyframes curBlink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+#type-hidden { position: absolute; opacity: 0; pointer-events: none; width: 0; height: 0; }
+
+/* ═══ CHIMP ═══ */
+#chimp-grid {
+  display: grid;
+  gap: 8px;
+  margin: 8px 0;
+}
+.ch-cell {
+  border-radius: 10px;
+  background: var(--cyan);
+  color: var(--bg);
+  font-family: var(--mono); font-size: 1.2rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.ch-cell.blank {
+  background: var(--card); border: 2px solid var(--border);
+  color: transparent; cursor: pointer;
+}
+.ch-cell.blank:hover { border-color: var(--border-bright); background: #1a1a28; }
+.ch-cell.hit-good { background: var(--green); color: var(--bg); }
+.ch-cell.hit-bad { background: var(--red); }
+
+/* ─── RESULT PANEL ─── */
+.result-panel {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 12px;
+  animation: fadeUp 0.4s ease;
+}
+@keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:none; } }
+
+.result-rank {
+  font-family: var(--mono); font-size: 0.7rem;
+  letter-spacing: 3px; color: var(--muted);
+  border: 1px solid var(--border); padding: 6px 16px; border-radius: 20px;
+  text-transform: uppercase;
+}
+
+/* ─── UTILS ─── */
+.hidden { display: none !important; }
+.fade-in { animation: fadeUp 0.3s ease; }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════ HOME ════════════════════ -->
+<div id="home" class="screen active">
+  <nav class="nav">
+    <div class="brand">NEUR<span class="brand-dot">▮</span>AL</div>
+    <div class="nav-tag">COGNITIVE BENCHMARK v2.0</div>
+  </nav>
+  <div class="home-body">
+    <div class="hero-eyebrow">// measure your brain</div>
+    <h1 class="hero-title">How sharp<br><span class="line2">are you?</span></h1>
+    <p class="hero-sub">Six precision tests measuring reaction speed, memory capacity,<br>aim accuracy, and cognitive endurance. No excuses.</p>
+    <div class="games-grid">
+      <div class="game-card card-c1" onclick="go('reaction')">
+        <div class="card-num">01 —</div>
+        <span class="card-icon">⚡</span>
+        <div class="card-title">Reaction Time</div>
+        <div class="card-desc">Click the instant the screen turns green. Measures your raw neural latency.</div>
+        <div class="card-best">Best: <span id="best-rt">—</span></div>
+      </div>
+      <div class="game-card card-c2" onclick="go('sequence')">
+        <div class="card-num">02 —</div>
+        <span class="card-icon">🧠</span>
+        <div class="card-title">Sequence Memory</div>
+        <div class="card-desc">Watch a pattern grow. Repeat it back perfectly. Don't lose count.</div>
+        <div class="card-best">Best: <span id="best-seq">—</span></div>
+      </div>
+      <div class="game-card card-c3" onclick="go('aim')">
+        <div class="card-num">03 —</div>
+        <span class="card-icon">🎯</span>
+        <div class="card-title">Aim Trainer</div>
+        <div class="card-desc">Hit 30 targets as fast as possible. Pure speed and precision.</div>
+        <div class="card-best">Best: <span id="best-aim">—</span></div>
+      </div>
+      <div class="game-card card-c4" onclick="go('number')">
+        <div class="card-num">04 —</div>
+        <span class="card-icon">🔢</span>
+        <div class="card-title">Number Memory</div>
+        <div class="card-desc">A number flashes. Remember it. Get longer. How many digits can you hold?</div>
+        <div class="card-best">Best: <span id="best-num">—</span></div>
+      </div>
+      <div class="game-card card-c5" onclick="go('typing')">
+        <div class="card-num">05 —</div>
+        <span class="card-icon">⌨️</span>
+        <div class="card-title">Typing Speed</div>
+        <div class="card-desc">One minute. Type as fast and accurately as you can. WPM is king.</div>
+        <div class="card-best">Best: <span id="best-type">—</span></div>
+      </div>
+      <div class="game-card card-c6" onclick="go('chimp')">
+        <div class="card-num">06 —</div>
+        <span class="card-icon">🐒</span>
+        <div class="card-title">Chimp Test</div>
+        <div class="card-desc">Numbers appear and vanish. Tap them in order. Beat the chimp.</div>
+        <div class="card-best">Best: <span id="best-chimp">—</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════ REACTION TIME ════════════════════ -->
+<div id="reaction" class="screen">
+  <div class="game-screen">
+    <button class="back-btn" onclick="goHome()">← HOME</button>
+    <div class="g-label">// reaction time</div>
+    <div class="g-title" id="rt-title">Click when<br>you see green</div>
+    <div class="g-sub" id="rt-sub">5 rounds. We'll average the results.</div>
+    <div class="rt-dots" id="rt-dots"></div>
+    <div id="rt-zone" class="idle" onclick="rtClick()">
+      <div class="rt-icon" id="rt-icon">👁️</div>
+      <div class="rt-msg" id="rt-msg">CLICK TO BEGIN</div>
+      <div class="rt-sub" id="rt-sub2"></div>
+    </div>
+    <div id="rt-result" class="hidden" style="margin-top:24px;text-align:center">
+      <div class="big-num" id="rt-num" style="color:var(--green)"></div>
+      <div class="unit-label">MILLISECONDS</div>
+      <div id="rt-rank" class="result-rank" style="margin-top:16px"></div>
+      <div style="display:flex;justify-content:center;margin-top:20px">
+        <button class="action-btn" onclick="initRT()">TRY AGAIN</button>
+        <button class="action-btn secondary" onclick="goHome()">HOME</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════ SEQUENCE MEMORY ════════════════════ -->
+<div id="sequence" class="screen">
+  <div class="game-screen">
+    <button class="back-btn" onclick="goHome()">← HOME</button>
+    <div class="g-label">// sequence memory</div>
+    <div class="g-title" id="seq-title">Memorize<br>the pattern</div>
+    <div class="g-sub" id="seq-sub">Watch which squares light up, then repeat it.</div>
+    <div class="seq-wrap">
+      <div class="seq-level-row" id="seq-pips"></div>
+      <div id="seq-grid"></div>
+    </div>
+    <div id="seq-result" class="hidden result-panel" style="margin-top:24px">
+      <div class="big-num" style="color:var(--purple)" id="seq-score-num"></div>
+      <div class="unit-label">LEVEL REACHED</div>
+      <div id="seq-rank" class="result-rank"></div>
+      <div style="display:flex;gap:12px;margin-top:20px">
+        <button class="action-btn" style="background:var(--purple)" onclick="initSeq()">TRY AGAIN</button>
+        <button class="action-btn secondary" onclick="goHome()">HOME</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════ AIM TRAINER ════════════════════ -->
+<div id="aim" class="screen">
+  <div class="game-screen">
+    <button class="back-btn" onclick="goHome()">← HOME</button>
+    <div class="g-label">// aim trainer</div>
+    <div class="aim-hud">
+      <div class="aim-stat"><div class="v" id="aim-count" style="color:var(--orange)">0</div><div class="l">HITS</div></div>
+      <div class="aim-stat"><div class="v" id="aim-remain">30</div><div class="l">REMAINING</div></div>
+      <div class="aim-stat"><div class="v" id="aim-avgms" style="color:var(--cyan)">—</div><div class="l">AVG MS</div></div>
+    </div>
+    <div id="aim-arena"></div>
+    <div id="aim-start-wrap" style="margin-top:20px">
+      <div class="g-sub">Click 30 targets as fast as possible</div>
+      <button class="action-btn" style="background:var(--orange);margin-top:8px" onclick="startAim()">START</button>
+    </div>
+    <div id="aim-result" class="hidden result-panel" style="margin-top:24px">
+      <div class="big-num" style="color:var(--orange)" id="aim-final-num"></div>
+      <div class="unit-label">AVG MS PER TARGET</div>
+      <div id="aim-rank" class="result-rank"></div>
+      <div style="display:flex;gap:12px;margin-top:20px">
+        <button class="action-btn" style="background:var(--orange)" onclick="startAim()">TRY AGAIN</button>
+        <button class="action-btn secondary" onclick="goHome()">HOME</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════ NUMBER MEMORY ════════════════════ -->
+<div id="number" class="screen">
+  <div class="game-screen">
+    <button class="back-btn" onclick="goHome()">← HOME</button>
+    <div class="g-label">// number memory</div>
+    <div class="g-title" id="num-title">Remember<br>the number</div>
+    <div class="g-sub" id="num-sub">A number will appear. Memorize it before it disappears.</div>
+    <div id="num-display"></div>
+    <div class="num-bar-wrap hidden" id="num-bar-wrap">
+      <div class="num-bar-bg"><div class="num-bar-fill" id="num-bar-fill" style="width:100%"></div></div>
+    </div>
+    <div id="num-input-wrap" class="hidden" style="display:flex;flex-direction:column;align-items:center;gap:16px">
+      <div class="g-sub">What was the number?</div>
+      <input type="number" id="num-input" placeholder="_ _ _ _ _" onkeydown="if(event.key==='Enter')checkNum()">
+      <button class="action-btn" style="background:var(--green);color:var(--bg)" onclick="checkNum()">SUBMIT</button>
+    </div>
+    <div id="num-start-wrap">
+      <button class="action-btn" style="background:var(--green);color:var(--bg)" onclick="startNum()">START</button>
+    </div>
+    <div id="num-result" class="hidden result-panel" style="margin-top:24px">
+      <div class="big-num" style="color:var(--green)" id="num-final-num"></div>
+      <div class="unit-label">DIGITS REMEMBERED</div>
+      <div id="num-rank" class="result-rank"></div>
+      <div style="display:flex;gap:12px;margin-top:20px">
+        <button class="action-btn" style="background:var(--green);color:var(--bg)" onclick="initNum()">TRY AGAIN</button>
+        <button class="action-btn secondary" onclick="goHome()">HOME</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════ TYPING ════════════════════ -->
+<div id="typing" class="screen">
+  <div class="game-screen">
+    <button class="back-btn" onclick="goHome()">← HOME</button>
+    <div class="g-label">// typing speed</div>
+    <div class="typing-hud">
+      <div class="typing-stat"><div class="v" id="t-wpm">0</div><div class="l">WPM</div></div>
+      <div class="typing-stat"><div class="v" id="t-acc" style="color:var(--green)">100%</div><div class="l">ACCURACY</div></div>
+      <div class="typing-stat"><div class="v" id="t-time" style="color:var(--orange)">60</div><div class="l">SECONDS</div></div>
+    </div>
+    <div id="type-box" onclick="focusType()"></div>
+    <input type="text" id="type-hidden" oninput="typeChar()" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    <div id="type-start-msg" class="g-sub" style="margin-top:16px">Click the text box above and start typing</div>
+    <div id="type-result" class="hidden result-panel" style="margin-top:24px">
+      <div class="big-num" style="color:var(--cyan)" id="type-final-wpm"></div>
+      <div class="unit-label">WORDS PER MINUTE</div>
+      <div id="type-rank" class="result-rank"></div>
+      <div style="display:flex;gap:12px;margin-top:20px">
+        <button class="action-btn" onclick="initTyping()">TRY AGAIN</button>
+        <button class="action-btn secondary" onclick="goHome()">HOME</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════ CHIMP ════════════════════ -->
+<div id="chimp" class="screen">
+  <div class="game-screen">
+    <button class="back-btn" onclick="goHome()">← HOME</button>
+    <div class="g-label">// chimp test</div>
+    <div class="g-title" id="chimp-title">Numbers will appear<br>then hide</div>
+    <div class="g-sub" id="chimp-sub">Tap them in order from lowest to highest.</div>
+    <div style="font-family:var(--mono);font-size:0.75rem;color:var(--cyan);margin-bottom:8px" id="chimp-level-display">LEVEL 4</div>
+    <div id="chimp-grid"></div>
+    <div id="chimp-start-wrap" style="margin-top:20px">
+      <button class="action-btn" style="background:var(--yellow);color:var(--bg)" onclick="startChimp()">START</button>
+    </div>
+    <div id="chimp-result" class="hidden result-panel" style="margin-top:24px">
+      <div class="big-num" style="color:var(--yellow)" id="chimp-final-num"></div>
+      <div class="unit-label">MAX NUMBERS REMEMBERED</div>
+      <div id="chimp-rank" class="result-rank"></div>
+      <div style="display:flex;gap:12px;margin-top:20px">
+        <button class="action-btn" style="background:var(--yellow);color:var(--bg)" onclick="initChimp()">TRY AGAIN</button>
+        <button class="action-btn secondary" onclick="goHome()">HOME</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════════════
+// UTILITIES
+// ══════════════════════════════════════════════════
+const $ = id => document.getElementById(id);
+const bests = {};
+const tids = new Set();
+
+function ST(fn, ms) { const t = setTimeout(fn, ms); tids.add(t); return t; }
+function SI(fn, ms) { const t = setInterval(fn, ms); tids.add(t); return t; }
+function clearTids() { tids.forEach(t => { clearTimeout(t); clearInterval(t); }); tids.clear(); }
+
+function go(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  $(id).classList.add('active');
+  ({ reaction: initRT, sequence: initSeq, aim: initAim, number: initNum, typing: initTyping, chimp: initChimp })[id]();
+}
+
+function goHome() {
+  clearTids();
+  aimRunning = false;
+  typingActive = false;
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  $('home').classList.add('active');
+  updateBestBadges();
+}
+
+function updateBestBadges() {
+  if (bests.rt)    $('best-rt').textContent    = bests.rt + 'ms';
+  if (bests.seq)   $('best-seq').textContent   = 'Level ' + bests.seq;
+  if (bests.aim)   $('best-aim').textContent   = bests.aim + 'ms avg';
+  if (bests.num)   $('best-num').textContent   = bests.num + ' digits';
+  if (bests.type)  $('best-type').textContent  = bests.type + ' WPM';
+  if (bests.chimp) $('best-chimp').textContent = bests.chimp + ' numbers';
+}
+
+function rankRT(ms) {
+  if (ms < 150) return '🏆 SUPERHUMAN';
+  if (ms < 200) return '⚡ EXCELLENT';
+  if (ms < 250) return '✅ GREAT';
+  if (ms < 300) return '👍 GOOD';
+  if (ms < 400) return '📊 AVERAGE';
+  return '🐢 NEEDS WORK';
+}
+
+function rankWPM(wpm) {
+  if (wpm > 100) return '🏆 ELITE TYPIST';
+  if (wpm > 70)  return '⚡ FAST';
+  if (wpm > 50)  return '✅ ABOVE AVERAGE';
+  if (wpm > 35)  return '👍 AVERAGE';
+  return '📊 KEEP PRACTICING';
+}
+
+
+// ══════════════════════════════════════════════════
+// 01 — REACTION TIME
+// ══════════════════════════════════════════════════
+let rtState = 'idle', rtStart = 0, rtTimes = [], rtWaitTimer = null;
+
+function initRT() {
+  clearTids();
+  rtState = 'idle'; rtTimes = [];
+  $('rt-zone').className = 'idle';
+  $('rt-icon').textContent = '👁️';
+  $('rt-msg').textContent = 'CLICK TO BEGIN';
+  $('rt-sub2').textContent = '';
+  $('rt-result').classList.add('hidden');
+  $('rt-title').textContent = 'Click when\nyou see green';
+  buildDots();
+}
+
+function buildDots() {
+  $('rt-dots').innerHTML = Array(5).fill(0).map(() => '<div class="rt-dot"></div>').join('');
+}
+
+function rtClick() {
+  if (rtState === 'result') { initRT(); return; }
+  if (rtState === 'idle') {
+    rtState = 'waiting';
+    const z = $('rt-zone'); z.className = 'waiting';
+    $('rt-icon').textContent = '⏳';
+    $('rt-msg').textContent = 'WAIT FOR GREEN...';
+    $('rt-sub2').textContent = '';
+    const delay = 1500 + Math.random() * 3500;
+    rtWaitTimer = ST(() => {
+      z.className = 'go';
+      $('rt-icon').textContent = '🟢';
+      $('rt-msg').textContent = 'CLICK NOW!';
+      rtState = 'go';
+      rtStart = performance.now();
+    }, delay);
+  } else if (rtState === 'waiting') {
+    clearTimeout(rtWaitTimer);
+    rtState = 'idle';
+    $('rt-zone').className = 'early';
+    $('rt-icon').textContent = '❌';
+    $('rt-msg').textContent = 'TOO EARLY!';
+    $('rt-sub2').textContent = 'Click to try again';
+  } else if (rtState === 'go') {
+    const ms = Math.round(performance.now() - rtStart);
+    rtTimes.push(ms);
+    const dots = $('rt-dots').querySelectorAll('.rt-dot');
+    if (dots[rtTimes.length - 1]) dots[rtTimes.length - 1].classList.add('done');
+    if (rtTimes.length < 5) {
+      rtState = 'idle';
+      $('rt-zone').className = 'idle';
+      $('rt-icon').textContent = '👁️';
+      $('rt-msg').textContent = `✓ ${ms}ms — Click for round ${rtTimes.length + 1}`;
+      $('rt-sub2').textContent = '';
+    } else {
+      const avg = Math.round(rtTimes.reduce((a,b)=>a+b,0) / rtTimes.length);
+      if (!bests.rt || avg < bests.rt) bests.rt = avg;
+      $('rt-zone').className = 'idle';
+      $('rt-icon').textContent = '';
+      $('rt-msg').textContent = '';
+      $('rt-num').textContent = avg;
+      $('rt-rank').textContent = rankRT(avg);
+      $('rt-result').classList.remove('hidden');
+      rtState = 'result';
+    }
+  }
+}
+
+
+// ══════════════════════════════════════════════════
+// 02 — SEQUENCE MEMORY
+// ══════════════════════════════════════════════════
+let seqSeq = [], seqIdx = 0, seqLevel = 1, seqPhase = 'idle';
+
+function initSeq() {
+  clearTids();
+  seqSeq = []; seqIdx = 0; seqLevel = 1; seqPhase = 'idle';
+  $('seq-result').classList.add('hidden');
+  $('seq-title').textContent = 'Memorize\nthe pattern';
+  buildSeqGrid();
+  buildSeqPips();
+  ST(() => nextSeqRound(), 400);
+}
+
+function buildSeqGrid() {
+  $('seq-grid').innerHTML = '';
+  for (let i = 0; i < 9; i++) {
+    const d = document.createElement('div');
+    d.className = 'sq'; d.dataset.i = i;
+    d.onclick = () => seqTap(i);
+    $('seq-grid').appendChild(d);
+  }
+}
+
+function buildSeqPips() {
+  $('seq-pips').innerHTML = Array(Math.max(8, seqLevel + 2)).fill(0)
+    .map((_, i) => `<div class="seq-pip${i < seqLevel - 1 ? ' done' : ''}"></div>`).join('');
+}
+
+function nextSeqRound() {
+  seqSeq.push(Math.floor(Math.random() * 9));
+  seqIdx = 0; seqPhase = 'showing';
+  $('seq-sub').textContent = `Level ${seqLevel} — watch the sequence`;
+  buildSeqPips();
+  playSeq(0);
+}
+
+function playSeq(i) {
+  if (i >= seqSeq.length) { seqPhase = 'input'; $('seq-sub').textContent = "Now repeat it!"; return; }
+  const cells = document.querySelectorAll('.sq');
+  ST(() => {
+    cells[seqSeq[i]].classList.add('flash');
+    ST(() => {
+      cells[seqSeq[i]].classList.remove('flash');
+      ST(() => playSeq(i + 1), 150);
+    }, 400);
+  }, 400 * i);
+}
+
+function seqTap(i) {
+  if (seqPhase !== 'input') return;
+  const cells = document.querySelectorAll('.sq');
+  if (i === seqSeq[seqIdx]) {
+    cells[i].classList.add('hit');
+    ST(() => cells[i].classList.remove('hit'), 250);
+    seqIdx++;
+    if (seqIdx >= seqSeq.length) {
+      seqPhase = 'idle';
+      seqLevel++;
+      $('seq-sub').textContent = '✓ Correct! Next round coming...';
+      ST(nextSeqRound, 900);
+    }
+  } else {
+    seqPhase = 'idle';
+    cells[i].classList.add('miss');
+    if (!bests.seq || seqLevel > bests.seq) bests.seq = seqLevel;
+    ST(() => {
+      $('seq-score-num').textContent = seqLevel;
+      $('seq-rank').textContent = seqLevel < 5 ? '📊 KEEP PRACTICING' : seqLevel < 9 ? '✅ GOOD MEMORY' : '🏆 EXCELLENT';
+      $('seq-result').classList.remove('hidden');
+    }, 600);
+  }
+}
+
+
+// ══════════════════════════════════════════════════
+// 03 — AIM TRAINER
+// ══════════════════════════════════════════════════
+let aimRunning = false, aimHits = 0, aimTimes = [], aimLast = 0;
+
+function initAim() {
+  aimRunning = false; aimHits = 0; aimTimes = [];
+  $('aim-arena').innerHTML = '';
+  $('aim-start-wrap').classList.remove('hidden');
+  $('aim-result').classList.add('hidden');
+  $('aim-count').textContent = '0';
+  $('aim-remain').textContent = '30';
+  $('aim-avgms').textContent = '—';
+}
+
+function startAim() {
+  aimRunning = true; aimHits = 0; aimTimes = [];
+  $('aim-start-wrap').classList.add('hidden');
+  $('aim-result').classList.add('hidden');
+  $('aim-count').textContent = '0';
+  $('aim-remain').textContent = '30';
+  $('aim-avgms').textContent = '—';
+  placeTarget();
+}
+
+function placeTarget() {
+  const arena = $('aim-arena');
+  arena.innerHTML = '';
+  const size = 44 + Math.random() * 36;
+  const pad = size / 2 + 8;
+  const x = pad + Math.random() * (arena.offsetWidth - size - 16);
+  const y = pad + Math.random() * (arena.offsetHeight - size - 16);
+  const t = document.createElement('div');
+  t.className = 'aim-target';
+  t.style.cssText = `width:${size}px;height:${size}px;left:${x}px;top:${y}px`;
+  t.innerHTML = '<div class="aim-ring-outer"></div><div class="aim-ring-mid"></div><div class="aim-ring-inner"></div>';
+  t.onclick = e => {
+    e.stopPropagation();
+    if (!aimRunning) return;
+    const now = performance.now();
+    if (aimLast > 0) aimTimes.push(now - aimLast);
+    aimLast = now;
+    aimHits++;
+    const rem = 30 - aimHits;
+    $('aim-count').textContent = aimHits;
+    $('aim-remain').textContent = rem;
+    if (aimTimes.length) $('aim-avgms').textContent = Math.round(aimTimes.reduce((a,b)=>a+b)/aimTimes.length);
+    if (rem <= 0) {
+      aimRunning = false;
+      const avg = Math.round(aimTimes.reduce((a,b)=>a+b)/aimTimes.length);
+      if (!bests.aim || avg < bests.aim) bests.aim = avg;
+      arena.innerHTML = '';
+      $('aim-final-num').textContent = avg + 'ms';
+      $('aim-rank').textContent = avg < 300 ? '🏆 PRO LEVEL' : avg < 500 ? '⚡ FAST' : avg < 800 ? '✅ DECENT' : '📊 KEEP PRACTICING';
+      $('aim-result').classList.remove('hidden');
+    } else {
+      placeTarget();
+    }
+  };
+  arena.appendChild(t);
+  aimLast = performance.now();
+}
+
+
+// ══════════════════════════════════════════════════
+// 04 — NUMBER MEMORY
+// ══════════════════════════════════════════════════
+let numLevel = 1, numCurrent = '', numBarTimer = null;
+
+function initNum() {
+  clearTids();
+  numLevel = 1; numCurrent = '';
+  $('num-display').textContent = '';
+  $('num-bar-wrap').classList.add('hidden');
+  $('num-input-wrap').classList.add('hidden');
+  $('num-input-wrap').style.display = '';
+  $('num-start-wrap').classList.remove('hidden');
+  $('num-result').classList.add('hidden');
+  $('num-title').textContent = 'Remember\nthe number';
+  $('num-sub').textContent = 'A number will appear. Memorize it before it disappears.';
+}
+
+function startNum() {
+  $('num-start-wrap').classList.add('hidden');
+  showNumRound();
+}
+
+function showNumRound() {
+  numCurrent = '';
+  for (let i = 0; i < numLevel; i++)
+    numCurrent += i === 0 ? (1 + Math.floor(Math.random()*9)) : Math.floor(Math.random()*10);
+  $('num-display').textContent = numCurrent;
+  $('num-input-wrap').classList.add('hidden');
+  $('num-result').classList.add('hidden');
+  $('num-sub').textContent = `Level ${numLevel} — ${numLevel} digit${numLevel>1?'s':''}`;
+  const ms = 1000 + numLevel * 500;
+  const bar = $('num-bar-fill');
+  $('num-bar-wrap').classList.remove('hidden');
+  bar.style.transition = 'none'; bar.style.width = '100%';
+  ST(() => { bar.style.transition = `width ${ms}ms linear`; bar.style.width = '0%'; }, 30);
+  ST(() => {
+    $('num-display').textContent = '';
+    $('num-bar-wrap').classList.add('hidden');
+    $('num-input-wrap').classList.remove('hidden');
+    $('num-input-wrap').style.display = 'flex';
+    $('num-input').value = '';
+    ST(() => $('num-input').focus(), 50);
+    $('num-sub').textContent = 'What was the number?';
+  }, ms);
+}
+
+function checkNum() {
+  const val = $('num-input').value.trim();
+  $('num-input-wrap').classList.add('hidden');
+  if (val === numCurrent) {
+    numLevel++;
+    $('num-sub').textContent = '✓ Correct!';
+    ST(showNumRound, 700);
+  } else {
+    const digits = numLevel - 1;
+    if (!bests.num || digits > bests.num) bests.num = digits;
+    $('num-title').textContent = `The number was\n${numCurrent}`;
+    $('num-final-num').textContent = digits || 1;
+    $('num-rank').textContent = digits < 7 ? '📊 AVERAGE' : digits < 10 ? '✅ GOOD' : digits < 13 ? '⚡ IMPRESSIVE' : '🏆 ELITE';
+    $('num-result').classList.remove('hidden');
+  }
+}
+
+
+// ══════════════════════════════════════════════════
+// 05 — TYPING SPEED
+// ══════════════════════════════════════════════════
+const WORDS = ["the","be","to","of","and","a","in","that","have","it","for","not","on","with","he","as","you","do","at","this","but","his","by","from","they","we","say","her","she","or","an","will","my","one","all","would","there","their","what","so","up","out","if","about","who","get","which","go","me","when","make","can","like","time","no","just","him","know","take","people","into","year","your","good","some","could","them","see","other","than","then","now","look","only","come","its","over","think","also","back","after","use","two","how","our","work","first","well","way","even","new","want","because","any","these","give","day","most","us","great","between","need","large","often","hand","high","place","hold","turn","move","live","strong","change","power","light","world","thing","man","woman","child","life","walk","water","above","below","before","between","never","always","every","under","again","right","left","keep","think","feel","found"];
+
+let typeText = [], typeIdx = 0, typeOk = 0, typeTotal = 0;
+let typeStart = 0, typeTimer = null, typeSecs = 60, typingActive = false;
+
+function initTyping() {
+  clearTids();
+  typingActive = false; typeIdx = 0; typeOk = 0; typeTotal = 0; typeSecs = 60;
+  $('t-wpm').textContent = '0';
+  $('t-acc').textContent = '100%';
+  $('t-time').textContent = '60';
+  $('type-result').classList.add('hidden');
+  $('type-start-msg').classList.remove('hidden');
+  genTypeText();
+  renderTypeBox();
+}
+
+function genTypeText() {
+  typeText = [];
+  for (let i = 0; i < 120; i++) typeText.push(WORDS[Math.floor(Math.random() * WORDS.length)]);
+}
+
+function renderTypeBox() {
+  const full = typeText.join(' ');
+  let html = '';
+  for (let i = 0; i < full.length; i++) {
+    // Use regular space so CSS can wrap lines naturally
+    const ch = full[i] === ' ' ? ' ' : full[i];
+    let cls = 'c';
+    if (i < typeIdx) cls += ' ok';
+    if (i === typeIdx) cls += ' cur';
+    html += `<span class="${cls}">${ch}</span>`;
+  }
+  $('type-box').innerHTML = html;
+
+  // Scroll the cursor into view inside the box
+  const cur = $('type-box').querySelector('.cur');
+  if (cur) {
+    const box = $('type-box');
+    const curTop = cur.offsetTop;
+    const lineH = 32; // approx line height
+    // Keep cursor on the second visible line so context above is visible
+    box.scrollTop = Math.max(0, curTop - lineH);
+  }
+}
+
+function focusType() {
+  $('type-hidden').focus();
+  $('type-box').classList.add('active');
+}
+
+function typeChar() {
+  if (!typingActive) {
+    typingActive = true;
+    typeStart = performance.now();
+    $('type-start-msg').classList.add('hidden');
+    typeTimer = SI(() => {
+      typeSecs--;
+      $('t-time').textContent = typeSecs;
+      if (typeSecs <= 0) { clearInterval(typeTimer); finishTyping(); }
+    }, 1000);
+  }
+  const inp = $('type-hidden');
+  const val = inp.value;
+  if (!val.length) return;
+  const ch = val[val.length - 1];
+  const full = typeText.join(' ');
+  const expected = full[typeIdx];
+  const spans = $('type-box').querySelectorAll('.c');
+  if (ch === expected) {
+    spans[typeIdx]?.classList.add('ok');
+    typeOk++;
+  } else {
+    spans[typeIdx]?.classList.add('err');
+  }
+  spans[typeIdx]?.classList.remove('cur');
+  typeTotal++;
+  typeIdx++;
+  spans[typeIdx]?.classList.add('cur');
+  inp.value = '';
+  const elapsed = (performance.now() - typeStart) / 60000;
+  const wpm = elapsed > 0.01 ? Math.round((typeOk / 5) / elapsed) : 0;
+  const acc = typeTotal > 0 ? Math.round(typeOk / typeTotal * 100) : 100;
+  $('t-wpm').textContent = wpm;
+  $('t-acc').textContent = acc + '%';
+  if (typeIdx >= full.length) finishTyping();
+}
+
+function finishTyping() {
+  clearInterval(typeTimer);
+  typingActive = false;
+  const elapsed = (performance.now() - typeStart) / 60000;
+  const wpm = elapsed > 0.01 ? Math.round((typeOk / 5) / elapsed) : 0;
+  const acc = typeTotal > 0 ? Math.round(typeOk / typeTotal * 100) : 100;
+  if (!bests.type || wpm > bests.type) bests.type = wpm;
+  $('type-final-wpm').textContent = wpm;
+  $('type-rank').textContent = rankWPM(wpm) + ` — ${acc}% accuracy`;
+  $('type-result').classList.remove('hidden');
+}
+
+
+// ══════════════════════════════════════════════════
+// 06 — CHIMP TEST
+// ══════════════════════════════════════════════════
+let chimpLevel = 4, chimpSeq = [], chimpNext = 1, chimpPhase = 'idle';
+const CHIMP_COLS = 5, CHIMP_ROWS = 5;
+
+function initChimp() {
+  clearTids();
+  chimpLevel = 4; chimpPhase = 'idle';
+  $('chimp-grid').innerHTML = '';
+  $('chimp-start-wrap').classList.remove('hidden');
+  $('chimp-result').classList.add('hidden');
+  $('chimp-level-display').textContent = `LEVEL ${chimpLevel}`;
+  $('chimp-title').textContent = 'Numbers will appear\nthen hide';
+  $('chimp-sub').textContent = 'Tap them in order from lowest to highest.';
+}
+
+function startChimp() {
+  $('chimp-start-wrap').classList.add('hidden');
+  showChimpRound();
+}
+
+function showChimpRound() {
+  chimpNext = 1; chimpPhase = 'show';
+  $('chimp-level-display').textContent = `LEVEL ${chimpLevel} — ${chimpLevel} numbers`;
+  $('chimp-sub').textContent = 'Memorize the positions!';
+  $('chimp-result').classList.add('hidden');
+
+  const totalCells = CHIMP_COLS * CHIMP_ROWS;
+  const positions = [...Array(totalCells).keys()].sort(() => Math.random() - 0.5).slice(0, chimpLevel);
+  chimpSeq = positions;
+
+  const grid = $('chimp-grid');
+  const cellSize = Math.min(72, Math.floor((Math.min(window.innerWidth - 80, 420)) / CHIMP_COLS));
+  grid.style.cssText = `display:grid;grid-template-columns:repeat(${CHIMP_COLS},${cellSize}px);gap:6px`;
+  grid.innerHTML = '';
+
+  for (let i = 0; i < totalCells; i++) {
+    const d = document.createElement('div');
+    d.className = 'ch-cell';
+    d.style.cssText = `width:${cellSize}px;height:${cellSize}px`;
+    const posIdx = positions.indexOf(i);
+    if (posIdx !== -1) {
+      d.textContent = posIdx + 1;
+      d.dataset.num = posIdx + 1;
+    } else {
+      d.style.background = 'transparent';
+      d.style.border = 'none';
+      d.style.cursor = 'default';
+    }
+    grid.appendChild(d);
+  }
+
+  // Hide after 1.5s
+  ST(() => {
+    grid.querySelectorAll('.ch-cell[data-num]').forEach(c => {
+      c.classList.add('blank');
+    });
+    chimpPhase = 'input';
+    $('chimp-sub').textContent = 'Tap 1, 2, 3... in order!';
+    grid.querySelectorAll('.ch-cell.blank').forEach(c => {
+      c.onclick = () => chimpTap(c);
+    });
+  }, 1500);
+}
+
+function chimpTap(cell) {
+  if (chimpPhase !== 'input') return;
+  const num = parseInt(cell.dataset.num);
+  if (num === chimpNext) {
+    cell.classList.remove('blank');
+    cell.classList.add('hit-good');
+    chimpNext++;
+    if (chimpNext > chimpLevel) {
+      chimpPhase = 'idle';
+      chimpLevel++;
+      $('chimp-sub').textContent = '✓ Correct! Next level...';
+      ST(showChimpRound, 1000);
+    }
+  } else {
+    cell.classList.remove('blank');
+    cell.classList.add('hit-bad');
+    chimpPhase = 'idle';
+    // reveal all
+    $('chimp-grid').querySelectorAll('.ch-cell.blank').forEach(c => {
+      c.classList.remove('blank');
+      c.style.opacity = '0.4';
+    });
+    const score = chimpLevel;
+    if (!bests.chimp || score > bests.chimp) bests.chimp = score;
+    ST(() => {
+      $('chimp-final-num').textContent = score;
+      $('chimp-rank').textContent = score <= 5 ? '📊 AVERAGE' : score <= 8 ? '✅ GOOD' : score <= 11 ? '⚡ GREAT' : '🏆 SUPERHUMAN';
+      $('chimp-result').classList.remove('hidden');
+    }, 800);
+  }
+}
+
+// Boot
+</script>
+</body>
+</html>

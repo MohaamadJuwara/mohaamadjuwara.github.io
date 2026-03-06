@@ -50,10 +50,15 @@
             <div class="row align-items-center min-vh-100">
                 <div class="col-lg-6 col-md-12">
                     <div class="home-text animate__animated animate__fadeInLeft">
-                        <span class="welcome-text">Hello, I'm</span>
+                        <span class="welcome-text" id="timeGreeting">Hello, I'm</span>
                         <h1 class="animate-charcter">Mohaamad Juwara</h1>
-                        <h2>Full-Stack Developer</h2>
+                        <h2 id="roleRotator" data-roles="Full-Stack Developer|Backend Developer|Java & Web Developer">Full-Stack Developer</h2>
                         <p class="hero-description">Passionate about creating complete web applications from database to user interface. Currently pursuing Software Development at ROC Mondriaan.</p>
+                        <div class="hero-highlights" aria-label="Quick highlights">
+                            <span class="hero-chip">Open to internships</span>
+                            <span class="hero-chip">6+ projects delivered</span>
+                            <span class="hero-chip">Full-stack focus</span>
+                        </div>
                         <div class="hero-buttons">
                             <a href="projects.html" class="btn btn-primary btn-lg me-3">View My Work</a>
                             <a href="contact.html" class="btn btn-outline-primary btn-lg">Get In Touch</a>
@@ -97,7 +102,6 @@
                             <span class="skill-tag">MySQL</span>
                             <span class="skill-tag">Database</span>
                             <span class="skill-tag">Testing</span>
-                            <span class="skill-tag">Typescript</span>
                             <span class="skill-tag">Java</span>
                             <span class="skill-tag">Node.js</span>
                             <span class="skill-tag">Next.js</span>
@@ -120,19 +124,19 @@
                         <div class="row text-center">
                             <div class="col-6 mb-4">
                                 <div class="stat-item">
-                                    <div class="stat-number">3+</div>
+                                    <div class="stat-number" data-target="3">3+</div>
                                     <div class="stat-label">Years Learning</div>
                                 </div>
                             </div>
                             <div class="col-6 mb-4">
                                 <div class="stat-item">
-                                    <div class="stat-number">6+</div>
+                                    <div class="stat-number" data-target="6">6+</div>
                                     <div class="stat-label">Projects</div>
                                 </div>
                             </div>
                             <div class="col-6 mb-4">
                                 <div class="stat-item">
-                                    <div class="stat-number">13+</div>
+                                    <div class="stat-number" data-target="13">13+</div>
                                     <div class="stat-label">Technologies</div>
                                 </div>
                             </div>
@@ -152,13 +156,13 @@
     <!-- Projects Preview Section -->
     <section class="projects-preview py-5 bg-light">
         <div class="container">
-            <div class="row" role="link" tabindex="0" style="cursor: pointer;" onclick="window.location.href='projects.html'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='projects.html';}">
+            <div class="row">
                 <div class="col-12 text-center mb-5">
-                    <h3 class="section-title">Featured Projects</h3>
+                    <h3 class="section-title"><a href="projects.html" class="text-decoration-none text-reset">Featured Projects</a></h3>
                     <div class="section-divider"></div>
-                                            <p class="section-description">
+                    <p class="section-description">
                             Here are some of my recent projects that showcase my full-stack development skills, from frontend design to backend architecture and database management.
-                        </p>
+                    </p>
                 </div>
             </div>
             <div class="row">
@@ -209,7 +213,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
-                    <p>&copy; Mohaamad Juwara. All rights reserved.</p>
+                    <p>&copy; <span data-auto-year>2024</span> Mohaamad Juwara. All rights reserved.</p>
                 </div>
             </div>
         </div>

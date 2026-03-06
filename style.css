@@ -156,6 +156,27 @@ body {
     line-height: 1.6;
 }
 
+.hero-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 1.8rem;
+}
+
+.hero-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #fff;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    backdrop-filter: blur(6px);
+}
+
 .meContact {
     display: inline-block;
     padding: 15px 35px;
@@ -296,6 +317,10 @@ body {
     font-weight: 600;
     color: #333;
     margin-bottom: 1rem;
+}
+
+#roleRotator {
+    min-height: 2.6rem;
 }
 
 .project-preview-card p {

@@ -10,6 +10,643 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --pro-bg-deep: #0f172a;
+            --pro-bg-mid: #1e293b;
+            --pro-primary: #6366f1;
+            --pro-primary-dark: #4f46e5;
+            --pro-accent: #14b8a6;
+            --pro-text: #e2e8f0;
+            --pro-muted: rgba(226, 232, 240, 0.78);
+        }
+        .hero-section {
+            background: linear-gradient(135deg, var(--pro-bg-deep) 0%, var(--pro-bg-mid) 55%, #312e81 100%) !important;
+        }
+        .hero-title,
+        .hero-subtitle,
+        .hero-description {
+            color: var(--pro-text) !important;
+        }
+        .hero-title .highlight {
+            background: linear-gradient(90deg, #c7d2fe 0%, #99f6e4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-title,
+        .about-content h3,
+        .service-card h4,
+        .cta-section h3 {
+            color: #0f172a !important;
+        }
+        .section-description,
+        .about-content p,
+        .service-card p,
+        .cta-section p {
+            color: #475569 !important;
+        }
+        .section-divider {
+            background: linear-gradient(90deg, var(--pro-primary), var(--pro-accent)) !important;
+            box-shadow: 0 2px 10px rgba(99, 102, 241, 0.28) !important;
+            animation: none !important;
+        }
+        .services-section {
+            background: linear-gradient(140deg, #eef2ff 0%, #ecfeff 100%) !important;
+        }
+        .service-card {
+            border: 1px solid rgba(99, 102, 241, 0.16) !important;
+            box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08) !important;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(99, 102, 241, 0.38) !important;
+            box-shadow: 0 18px 34px rgba(99, 102, 241, 0.18) !important;
+        }
+        .service-icon i {
+            color: var(--pro-primary) !important;
+        }
+        .btn-primary {
+            background-color: var(--pro-primary) !important;
+            border-color: var(--pro-primary) !important;
+        }
+        .btn-primary:hover {
+            background-color: var(--pro-primary-dark) !important;
+            border-color: var(--pro-primary-dark) !important;
+        }
+        .btn-outline-primary {
+            color: var(--pro-primary) !important;
+            border-color: var(--pro-primary) !important;
+        }
+        .btn-outline-primary:hover {
+            background-color: var(--pro-primary) !important;
+            border-color: var(--pro-primary) !important;
+            color: #fff !important;
+        }
+        .footer {
+            background: #0f172a !important;
+        }
+        .footer p {
+            color: #cbd5e1 !important;
+        }
+        .typewriter-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            min-height: 2.2rem;
+        }
+        .typewriter-prompt {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: clamp(0.95rem, 2vw, 1.35rem);
+            color: #4ecdc4;
+            font-weight: 700;
+            flex-shrink: 0;
+            text-shadow: 0 0 12px rgba(78,205,196,0.7);
+        }
+        .typewriter-text {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: clamp(0.95rem, 2vw, 1.35rem);
+            color: #fff;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .typewriter-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background: #4ecdc4;
+            margin-left: 3px;
+            animation: ab-tw-blink 0.75s step-end infinite;
+            box-shadow: 0 0 8px rgba(78,205,196,0.9);
+            flex-shrink: 0;
+        }
+        @keyframes ab-tw-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .dot-grid-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.35;
+        }
+        .hero-section .container {
+            position: relative;
+            z-index: 1;
+        }
+        .spotify-widget {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.85rem;
+            background: rgba(15, 23, 42, 0.44);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            border-radius: 14px;
+            padding: 0.75rem 1.1rem;
+            max-width: 310px;
+            text-decoration: none !important;
+            color: #fff !important;
+            backdrop-filter: blur(10px);
+            margin-top: 1.2rem;
+            transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+            position: relative;
+            overflow: hidden;
+        }
+        .spotify-widget:hover {
+            background: rgba(15, 23, 42, 0.58);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.25);
+            color: #fff !important;
+        }
+        .spotify-label {
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #1DB954;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 2px;
+        }
+        .spotify-track {
+            font-size: 0.83rem;
+            font-weight: 700;
+            color: #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 190px;
+        }
+        .spotify-artist {
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.7);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 190px;
+        }
+        .spotify-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+            height: 13px;
+        }
+        .spotify-bars span {
+            display: block;
+            width: 3px;
+            background: #1DB954;
+            border-radius: 2px;
+            animation: ab-sp-eq 0.85s ease-in-out infinite alternate;
+        }
+        .spotify-bars span:nth-child(2) { animation-delay: 0.15s; animation-duration: 1s; }
+        .spotify-bars span:nth-child(3) { animation-delay: 0.3s; animation-duration: 0.7s; }
+        @keyframes ab-sp-eq {
+            from { transform: scaleY(0.2); }
+            to   { transform: scaleY(1); }
+        }
+        .spotify-progress {
+            height: 2px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            margin-top: 6px;
+            overflow: hidden;
+        }
+        .spotify-progress-fill {
+            height: 100%;
+            background: #1DB954;
+            border-radius: 2px;
+            transition: width 1.2s ease;
+        }
+        .marquee-strip {
+            overflow: hidden;
+            padding: 13px 0;
+            background: linear-gradient(90deg, rgba(99,102,241,0.18) 0%, rgba(20,184,166,0.18) 100%);
+            border-top: 1px solid rgba(99, 102, 241, 0.36);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.36);
+        }
+        .marquee-track {
+            display: inline-flex;
+            gap: 2.4rem;
+            white-space: nowrap;
+            animation: ab-mq-scroll 30s linear infinite;
+            padding-inline: 1rem;
+        }
+        .marquee-strip:hover .marquee-track { animation-play-state: paused; }
+        .marquee-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #334155;
+            white-space: nowrap;
+        }
+        .marquee-dot {
+            font-size: 0.58rem;
+            background: linear-gradient(45deg, #6366f1, #14b8a6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        @keyframes ab-mq-scroll {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .scroll-reveal[data-delay="1"] { transition-delay: 0.12s; }
+        .scroll-reveal[data-delay="2"] { transition-delay: 0.24s; }
+        .scroll-reveal[data-delay="3"] { transition-delay: 0.36s; }
+        .service-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            background: radial-gradient(
+                500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                rgba(99,102,241,0.13),
+                transparent 40%
+            );
+            pointer-events: none;
+        }
+        .service-card:hover::after {
+            opacity: 1;
+        }
+        /* ── Animated Stat Counters ── */
+        .ab-stats-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 55%, #312e81 100%);
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .ab-stats-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(99,102,241,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .ab-stat-card {
+            padding: 2.2rem 1rem;
+            border: 1px solid rgba(99,102,241,0.2);
+            background: rgba(255,255,255,0.03);
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+            transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .ab-stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #6366f1, #14b8a6);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .ab-stat-card:hover {
+            border-color: rgba(99,102,241,0.5);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(99,102,241,0.18);
+        }
+        .ab-stat-card:hover::before {
+            transform: scaleX(1);
+        }
+        .ab-stat-number {
+            font-size: clamp(2.4rem, 5vw, 3.6rem);
+            font-weight: 800;
+            background: linear-gradient(90deg, #c7d2fe, #99f6e4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            display: inline-block;
+        }
+        .ab-stat-plus {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #14b8a6;
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 0.3rem;
+            margin-left: 2px;
+        }
+        .ab-stat-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(226,232,240,0.45);
+            margin-top: 0.6rem;
+        }
+
+        /* ── Creative Stack Card ── */
+        .ab-stack-card {
+            text-align: left !important;
+            padding: 2.2rem 2rem !important;
+        }
+        .ab-stack-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+        }
+        .ab-stack-badge {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #6366f1;
+            background: rgba(99,102,241,0.1);
+            border: 1px solid rgba(99,102,241,0.25);
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+        }
+        .ab-stack-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.2rem;
+        }
+        .ab-tool-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.35rem 0.85rem;
+            border-radius: 100px;
+            background: rgba(99,102,241,0.08);
+            border: 1px solid rgba(99,102,241,0.2);
+            color: #6366f1;
+            transition: background 0.2s, border-color 0.2s, transform 0.2s;
+            cursor: default;
+        }
+        .ab-tool-tag:hover {
+            background: rgba(99,102,241,0.18);
+            border-color: rgba(99,102,241,0.45);
+            transform: translateY(-2px);
+        }
+        .ab-tool-tag i {
+            font-size: 0.8rem;
+        }
+
+        /* ── Lifestyle Image Grid ── */
+        .ab-lifestyle-section {
+            background: #0f172a;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .ab-lifestyle-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 20% 50%, rgba(99,102,241,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 80% 50%, rgba(20,184,166,0.07) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .ab-lifestyle-eyebrow {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: #14b8a6;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        .ab-lifestyle-eyebrow::before {
+            content: '';
+            display: inline-block;
+            width: 28px;
+            height: 1px;
+            background: #14b8a6;
+            box-shadow: 0 0 7px rgba(20,184,166,0.5);
+        }
+        .ab-lifestyle-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            color: #e2e8f0;
+            margin-bottom: 2.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+        }
+        .ab-lifestyle-grad {
+            background: linear-gradient(90deg, #6366f1, #14b8a6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .ab-lifestyle-card {
+            aspect-ratio: 4 / 3;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.07);
+            background: rgba(255,255,255,0.03);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            cursor: default;
+            transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .ab-lifestyle-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(99,102,241,0.12) 0%, rgba(20,184,166,0.08) 100%);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+        .ab-lifestyle-card:hover {
+            border-color: rgba(99,102,241,0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(99,102,241,0.15);
+        }
+        .ab-lifestyle-card:hover::before {
+            opacity: 1;
+        }
+        .ab-lifestyle-icon {
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, #6366f1, #14b8a6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+        .ab-lifestyle-card:hover .ab-lifestyle-icon {
+            transform: scale(1.15) translateY(-4px);
+        }
+        .ab-lifestyle-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 1.2rem;
+            background: linear-gradient(to top, rgba(15,23,42,0.95) 0%, transparent 100%);
+            transform: translateY(60%);
+            transition: transform 0.35s ease;
+            z-index: 2;
+        }
+        .ab-lifestyle-card:hover .ab-lifestyle-overlay {
+            transform: translateY(0);
+        }
+        .ab-lifestyle-label {
+            display: block;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #14b8a6;
+            margin-bottom: 0.35rem;
+        }
+        .ab-lifestyle-desc {
+            font-size: 0.78rem;
+            color: rgba(226,232,240,0.7);
+            line-height: 1.55;
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .ab-lifestyle-card { aspect-ratio: 1 / 1; }
+        }
+        /* ── Professional visibility refinements ── */
+        body {
+            background: #f8fafc;
+            color: #0f172a;
+        }
+        .navbar {
+            background: rgba(255, 255, 255, 0.92) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.22);
+        }
+        .navbar .nav-link {
+            color: #1e293b !important;
+            font-weight: 600;
+        }
+        .navbar .nav-link.active,
+        .navbar .nav-link:hover {
+            color: #4f46e5 !important;
+        }
+        .about-section {
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+        }
+        .about-content h3 {
+            color: #0f172a !important;
+        }
+        .about-content p,
+        .section-description {
+            color: #334155 !important;
+        }
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+            margin-top: 1rem;
+        }
+        .skill-tag {
+            background: rgba(99, 102, 241, 0.12);
+            border: 1px solid rgba(99, 102, 241, 0.28);
+            color: #3730a3 !important;
+            font-weight: 600;
+        }
+        .marquee-strip {
+            background: linear-gradient(90deg, #0f172a 0%, #1e293b 55%, #0f172a 100%);
+            border-top: 1px solid rgba(99, 102, 241, 0.45);
+            border-bottom: 1px solid rgba(20, 184, 166, 0.35);
+        }
+        .marquee-item {
+            color: #e2e8f0;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+        }
+        .services-section {
+            background: linear-gradient(145deg, #eef2ff 0%, #e2e8f0 100%) !important;
+        }
+        .service-card {
+            background: rgba(255, 255, 255, 0.94);
+            border: 1px solid rgba(99, 102, 241, 0.2) !important;
+        }
+        .service-card h4 {
+            color: #0f172a !important;
+        }
+        .service-card p {
+            color: #334155 !important;
+        }
+        .ab-stat-label {
+            color: rgba(226,232,240,0.78);
+        }
+        .ab-stack-badge {
+            color: #4338ca;
+            border-color: rgba(67,56,202,0.34);
+        }
+        .ab-tool-tag {
+            color: #4338ca;
+            border-color: rgba(67,56,202,0.26);
+            background: rgba(99,102,241,0.12);
+        }
+        .ab-lifestyle-card {
+            border-color: rgba(148,163,184,0.25);
+        }
+        .ab-lifestyle-overlay {
+            background: linear-gradient(to top, rgba(15,23,42,0.97) 8%, rgba(15,23,42,0.75) 52%, transparent 100%);
+        }
+        .ab-lifestyle-desc {
+            color: rgba(226,232,240,0.9);
+        }
+        .cta-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+        .cta-section h3 {
+            color: #f8fafc !important;
+        }
+        .cta-section p {
+            color: rgba(226,232,240,0.85) !important;
+        }
+        .cta-section .btn-primary {
+            box-shadow: 0 10px 24px rgba(79, 70, 229, 0.35);
+        }
+        .footer {
+            border-top: 1px solid rgba(148, 163, 184, 0.22);
+        }
+        @media (hover: none), (pointer: coarse) {
+            .ab-lifestyle-overlay {
+                transform: translateY(0);
+            }
+            .ab-lifestyle-card .ab-lifestyle-icon {
+                transform: scale(1.05);
+            }
+        }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
@@ -46,24 +683,28 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
+        <canvas class="dot-grid-canvas" id="dotGridCanvasAbout"></canvas>
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-12">
-                    <div class="hero-content">
+                    <div class="hero-content scroll-reveal">
                         <h1 class="hero-title">About <span class="highlight">Mohaamad Juwara</span></h1>
-                        <h2 class="hero-subtitle">Full-Stack Developer</h2>
+                        <div class="typewriter-wrap">
+                            <span class="typewriter-prompt">&gt;_</span>
+                            <span class="typewriter-text" id="aboutTypewriterText"></span>
+                            <span class="typewriter-cursor"></span>
+                        </div>
+                        <h2 class="hero-subtitle d-none">Full-Stack Developer</h2>
                         <p class="hero-description">
                             I'm a passionate and dedicated full-stack developer with expertise in both frontend and backend technologies. 
                             I enjoy building complete web applications from database design to user interface, solving complex problems through clean, efficient code.
                         </p>
-                        <div class="hero-buttons">
-                            <a href="projects.html" class="btn btn-primary">View My Projects</a>
-                            <a href="contact.html" class="btn btn-outline-primary">Contact Me</a>
-                        </div>
+                      
+                     
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12">
-                    <div class="hero-image">
+                    <div class="hero-image scroll-reveal" data-delay="2">
                         <img src="img/foto-pro.jpg" alt="Mohaamad Juwara" class="hero-img">
                     </div>
                 </div>
@@ -71,16 +712,20 @@
         </div>
     </section>
 
+    <div class="marquee-strip">
+      <div class="marquee-track" id="marqueeTrackAbout"></div>
+    </div>
+
     <!-- About Section -->
     <section class="about-section py-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <div class="section-header text-center">
+                    <div class="section-header text-center scroll-reveal">
                         <h2 class="section-title">My Journey</h2>
                         <div class="section-divider"></div>
                     </div>
-                    <div class="about-content">
+                    <div class="about-content scroll-reveal" data-delay="1">
                         <h3>Background & Education</h3>
                         <p>
                             I'm currently pursuing Software Development at ROC Mondriaan, where I'm building a solid foundation 
@@ -119,11 +764,46 @@
         </div>
     </section>
 
+    <section class="ab-stats-section">
+      <div class="container">
+        <div class="row g-4 justify-content-center text-center">
+          <div class="col-6 col-md-3 scroll-reveal" data-delay="1">
+            <div class="ab-stat-card">
+              <div class="ab-stat-number" data-target="3">0</div>
+              <div class="ab-stat-plus">+</div>
+              <div class="ab-stat-label">Years Learning</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3 scroll-reveal" data-delay="2">
+            <div class="ab-stat-card">
+              <div class="ab-stat-number" data-target="6">0</div>
+              <div class="ab-stat-plus">+</div>
+              <div class="ab-stat-label">Projects Delivered</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3 scroll-reveal" data-delay="3">
+            <div class="ab-stat-card">
+              <div class="ab-stat-number" data-target="13">0</div>
+              <div class="ab-stat-plus">+</div>
+              <div class="ab-stat-label">Technologies</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3 scroll-reveal">
+            <div class="ab-stat-card">
+              <div class="ab-stat-number" data-target="100">0</div>
+              <div class="ab-stat-plus">%</div>
+              <div class="ab-stat-label">Dedicated</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Services Section -->
     <section class="services-section py-5 bg-light">
         <div class="container">
             <div class="row">
-                <div class="col-12 text-center mb-5">
+                <div class="col-12 text-center mb-5 scroll-reveal">
                     <h2 class="section-title">What I Do</h2>
                     <div class="section-divider"></div>
                     <p class="section-description">
@@ -132,7 +812,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
+                <div class="col-lg-4 col-md-6 mb-4 scroll-reveal" data-delay="1">
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-code"></i>
@@ -144,7 +824,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
+                <div class="col-lg-4 col-md-6 mb-4 scroll-reveal" data-delay="2">
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-mobile-alt"></i>
@@ -156,7 +836,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
+                <div class="col-lg-4 col-md-6 mb-4 scroll-reveal" data-delay="3">
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-database"></i>
@@ -169,14 +849,84 @@
                     </div>
                 </div>
             </div>
+            <div class="row justify-content-center mt-4">
+              <div class="col-lg-6 col-md-10 scroll-reveal">
+                <div class="service-card ab-stack-card">
+                  <div class="ab-stack-top">
+                    <div class="service-icon">
+                      <i class="fas fa-layer-group"></i>
+                    </div>
+                    <div class="ab-stack-badge">My Stack</div>
+                  </div>
+                  <h4>Creative Stack</h4>
+                  <p>The tools, frameworks, and resources that power my daily workflow — from code editors and terminal setups to design tools and productivity apps.</p>
+                  <div class="ab-stack-tools">
+                    <span class="ab-tool-tag"><i class="fab fa-react"></i> React</span>
+                    <span class="ab-tool-tag"><i class="fab fa-vuejs"></i> Vue.js</span>
+                    <span class="ab-tool-tag"><i class="fab fa-node-js"></i> Node.js</span>
+                    <span class="ab-tool-tag"><i class="fab fa-php"></i> PHP</span>
+                    <span class="ab-tool-tag"><i class="fab fa-docker"></i> Docker</span>
+                    <span class="ab-tool-tag"><i class="fab fa-git-alt"></i> Git</span>
+                    <span class="ab-tool-tag"><i class="fab fa-java"></i> Java</span>
+                    <span class="ab-tool-tag"><i class="fas fa-database"></i> MySQL</span>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
+    </section>
+
+    <section class="ab-lifestyle-section">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-12 scroll-reveal">
+            <p class="ab-lifestyle-eyebrow">Beyond the code</p>
+            <h2 class="ab-lifestyle-title">What keeps me <span class="ab-lifestyle-grad">inspired</span></h2>
+          </div>
+        </div>
+        <div class="row g-3">
+          <div class="col-lg-4 col-md-4 col-6 scroll-reveal" data-delay="1">
+            <div class="ab-lifestyle-card">
+              <div class="ab-lifestyle-icon">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+              <div class="ab-lifestyle-overlay">
+                <span class="ab-lifestyle-label">CODE</span>
+                <p class="ab-lifestyle-desc">Building projects, learning new frameworks, solving algorithmic challenges daily.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-6 scroll-reveal" data-delay="2">
+            <div class="ab-lifestyle-card">
+              <div class="ab-lifestyle-icon">
+                <i class="fas fa-dumbbell"></i>
+              </div>
+              <div class="ab-lifestyle-overlay">
+                <span class="ab-lifestyle-label">FITNESS</span>
+                <p class="ab-lifestyle-desc">Staying active with fitness and listening to music to keep my energy and focus high.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-12 scroll-reveal" data-delay="3">
+            <div class="ab-lifestyle-card">
+              <div class="ab-lifestyle-icon">
+                <i class="fas fa-utensils"></i>
+              </div>
+              <div class="ab-lifestyle-overlay">
+                <span class="ab-lifestyle-label">FOOD</span>
+                <p class="ab-lifestyle-desc">Discovering cuisines from around the world — fuel for long coding sessions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Contact CTA Section -->
     <section class="cta-section py-5">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
+                <div class="col-lg-8 text-center scroll-reveal">
                     <h3>Ready to Work Together?</h3>
                     <p class="mb-4">
                         I'm always excited to take on new challenges and collaborate on interesting projects. 
@@ -193,13 +943,199 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
-                    <p>&copy;  Mohaamad Juwara. All rights reserved.</p>
+                    <p>&copy; <span data-auto-year>2024</span> Mohaamad Juwara. All rights reserved.</p>
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="main.js"></script>
+    <script>
+    (function () {
+        var lines = [
+            'Full-Stack Developer',
+            'Backend Engineer',
+            'Java & Web Developer',
+            'Problem Solver',
+            'Open to Internships'
+        ];
+        var el = document.getElementById('aboutTypewriterText');
+        if (!el) return;
+        var lineIdx = 0, charIdx = 0, deleting = false;
+        var TYPE_SPD = 85, DEL_SPD = 45, PAUSE_END = 1800, PAUSE_START = 400;
+        function tick() {
+            var cur = lines[lineIdx];
+            if (!deleting) {
+                el.textContent = cur.slice(0, charIdx + 1);
+                charIdx++;
+                if (charIdx === cur.length) {
+                    deleting = true;
+                    setTimeout(tick, PAUSE_END);
+                    return;
+                }
+                setTimeout(tick, TYPE_SPD);
+            } else {
+                el.textContent = cur.slice(0, charIdx - 1);
+                charIdx--;
+                if (charIdx === 0) {
+                    deleting = false;
+                    lineIdx = (lineIdx + 1) % lines.length;
+                    setTimeout(tick, PAUSE_START);
+                    return;
+                }
+                setTimeout(tick, DEL_SPD);
+            }
+        }
+        setTimeout(tick, 700);
+    })();
+
+    (function () {
+        const labels = [
+            "Full-Stack Developer", "Open to Internships", "React · Vue · Node",
+            "Clean Code Advocate", "Java & Web Dev", "Problem Solver",
+            "Agile & Scrum", "6+ Projects Shipped", "Docker · CI/CD", "Always Learning"
+        ];
+        const track = document.getElementById('marqueeTrackAbout');
+        if (!track) return;
+        [...labels, ...labels].forEach(function (text) {
+            const span = document.createElement('span');
+            span.className = 'marquee-item';
+            span.innerHTML = '<span class="marquee-dot">✦</span>' + text;
+            track.appendChild(span);
+        });
+    })();
+
+    (function () {
+        const tracks = [
+            { track: "Lofi Hip Hop Beats",  artist: "Chillhop Music",  progress: 58 },
+            { track: "Focus Flow",          artist: "Study Beats",     progress: 33 },
+            { track: "Late Night Coding",   artist: "Lo-fi Coder",     progress: 75 },
+            { track: "Deep Work Sessions",  artist: "Brain.fm",        progress: 20 },
+        ];
+        let i = 0;
+        function update() {
+            const d = tracks[i % tracks.length];
+            const t = document.getElementById('spotifyTrackAbout');
+            const a = document.getElementById('spotifyArtistAbout');
+            const p = document.getElementById('spotifyProgressAbout');
+            if (t) t.textContent = d.track;
+            if (a) a.textContent = d.artist;
+            if (p) p.style.width = d.progress + '%';
+            i++;
+        }
+        update();
+        setInterval(update, 14000);
+    })();
+
+    (function () {
+        var canvas = document.getElementById('dotGridCanvasAbout');
+        if (!canvas) return;
+        var ctx = canvas.getContext('2d');
+        var W, H, dots = [];
+        var mouse = { x: -9999, y: -9999 };
+        var SPACING = 36, DOT_R = 1.4, MAX_DIST = 110;
+
+        function resize() {
+            W = canvas.width  = canvas.offsetWidth;
+            H = canvas.height = canvas.offsetHeight;
+            dots = [];
+            var cols = Math.ceil(W / SPACING) + 1;
+            var rows = Math.ceil(H / SPACING) + 1;
+            for (var r = 0; r < rows; r++)
+                for (var c = 0; c < cols; c++)
+                    dots.push({ x: c * SPACING, y: r * SPACING });
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, W, H);
+            for (var i = 0; i < dots.length; i++) {
+                var d    = dots[i];
+                var dx   = d.x - mouse.x;
+                var dy   = d.y - mouse.y;
+                var dist = Math.sqrt(dx * dx + dy * dy);
+                var t    = Math.max(0, 1 - dist / MAX_DIST);
+                var a    = 0.15 + t * 0.55;
+                var r    = DOT_R + t * 2.8;
+                var red  = Math.round(102 + t * 153);
+                var grn  = Math.round(126 + t * 79);
+                var blu  = Math.round(234 - t * 84);
+                ctx.beginPath();
+                ctx.arc(d.x, d.y, r, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(' + red + ',' + grn + ',' + blu + ',' + a + ')';
+                ctx.fill();
+            }
+            requestAnimationFrame(draw);
+        }
+
+        var section = canvas.parentElement;
+        section.addEventListener('mousemove', function (e) {
+            var rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
+        section.addEventListener('mouseleave', function () {
+            mouse.x = -9999;
+            mouse.y = -9999;
+        });
+        window.addEventListener('resize', resize);
+        resize();
+        draw();
+    })();
+
+    (function () {
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.scroll-reveal').forEach(function (el) {
+            observer.observe(el);
+        });
+    })();
+
+    (function () {
+        document.querySelectorAll('.service-card').forEach(function (card) {
+            card.addEventListener('mousemove', function (e) {
+                var rect = card.getBoundingClientRect();
+                card.style.setProperty('--mouse-x', (e.clientX - rect.left) + 'px');
+                card.style.setProperty('--mouse-y', (e.clientY - rect.top) + 'px');
+            });
+        });
+    })();
+    /* ── Animated stat counters ── */
+    (function () {
+        function countUp(el) {
+            var target = parseInt(el.getAttribute('data-target'), 10);
+            var duration = 1800;
+            var steps = 60;
+            var stepVal = target / steps;
+            var current = 0;
+            var interval = setInterval(function () {
+                current += stepVal;
+                if (current >= target) {
+                    el.textContent = target;
+                    clearInterval(interval);
+                } else {
+                    el.textContent = Math.floor(current);
+                }
+            }, duration / steps);
+        }
+        var counterObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    var numEl = entry.target.querySelector('.ab-stat-number');
+                    if (numEl) countUp(numEl);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.4 });
+        document.querySelectorAll('.ab-stat-card').forEach(function (card) {
+            counterObserver.observe(card);
+        });
+    })();
+    </script>
 </body>
-</html>
 </html>

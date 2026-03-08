@@ -646,6 +646,386 @@
                 transform: scale(1.05);
             }
         }
+
+        /* ── Experience Section ── */
+        .ab-experience-section {
+            background: #f8fafc;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .ab-experience-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 40% at 10% 50%, rgba(99,102,241,0.05) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 90% 50%, rgba(20,184,166,0.04) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .ab-exp-eyebrow {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: #6366f1;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        .ab-exp-eyebrow::before {
+            content: '';
+            display: inline-block;
+            width: 28px;
+            height: 1px;
+            background: #6366f1;
+            box-shadow: 0 0 7px rgba(99,102,241,0.5);
+        }
+        .ab-exp-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 0;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+        }
+        .ab-exp-grad {
+            background: linear-gradient(90deg, #6366f1, #14b8a6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .ab-exp-card {
+            display: flex;
+            gap: 1.5rem;
+            background: #ffffff;
+            border: 1px solid rgba(99,102,241,0.14);
+            border-radius: 18px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .ab-exp-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, #6366f1, #14b8a6);
+            border-radius: 3px 0 0 3px;
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.35s ease;
+        }
+        .ab-exp-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(99,102,241,0.32);
+            box-shadow:
+                0 16px 40px rgba(99,102,241,0.12),
+                0 4px 12px rgba(0,0,0,0.06);
+        }
+        .ab-exp-card:hover::before {
+            transform: scaleY(1);
+        }
+        .ab-exp-card--edu::before {
+            background: linear-gradient(180deg, #14b8a6, #6366f1);
+        }
+        .ab-exp-logo {
+            width: 54px;
+            height: 54px;
+            min-width: 54px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(99,102,241,0.12), rgba(20,184,166,0.08));
+            border: 1px solid rgba(99,102,241,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: #6366f1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .ab-exp-card:hover .ab-exp-logo {
+            transform: scale(1.08);
+            box-shadow: 0 6px 18px rgba(99,102,241,0.2);
+        }
+        .ab-exp-logo--edu {
+            background: linear-gradient(135deg, rgba(20,184,166,0.12), rgba(99,102,241,0.08));
+            border-color: rgba(20,184,166,0.22);
+            color: #14b8a6;
+        }
+        .ab-exp-body {
+            flex: 1;
+            min-width: 0;
+        }
+        .ab-exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 0.85rem;
+            flex-wrap: wrap;
+        }
+        .ab-exp-role {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0 0 0.25rem;
+            letter-spacing: -0.01em;
+        }
+        .ab-exp-company {
+            margin: 0;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .ab-exp-company-link {
+            color: #6366f1;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: color 0.2s;
+        }
+        .ab-exp-company-link:hover {
+            color: #4f46e5;
+            text-decoration: none;
+        }
+        .ab-exp-ext {
+            font-size: 0.6rem;
+            opacity: 0.6;
+        }
+        .ab-exp-meta {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.4rem;
+            flex-shrink: 0;
+        }
+        .ab-exp-date {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .ab-exp-date i {
+            color: #6366f1;
+            font-size: 0.65rem;
+        }
+        .ab-exp-type {
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #6366f1;
+            background: rgba(99,102,241,0.1);
+            border: 1px solid rgba(99,102,241,0.22);
+            padding: 0.2rem 0.65rem;
+            border-radius: 100px;
+        }
+        .ab-exp-type--edu {
+            color: #14b8a6;
+            background: rgba(20,184,166,0.1);
+            border-color: rgba(20,184,166,0.22);
+        }
+        .ab-exp-desc {
+            font-size: 0.88rem;
+            color: #475569;
+            line-height: 1.75;
+            margin-bottom: 1rem;
+        }
+        .ab-exp-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+        }
+        .ab-exp-tag {
+            font-size: 0.68rem;
+            font-weight: 600;
+            padding: 0.22rem 0.7rem;
+            border-radius: 100px;
+            background: rgba(99,102,241,0.07);
+            border: 1px solid rgba(99,102,241,0.18);
+            color: #4338ca;
+            font-family: 'Courier New', Courier, monospace;
+            transition: background 0.2s, border-color 0.2s, transform 0.2s;
+        }
+        .ab-exp-tag:hover {
+            background: rgba(99,102,241,0.14);
+            border-color: rgba(99,102,241,0.35);
+            transform: translateY(-1px);
+        }
+        @media (max-width: 576px) {
+            .ab-exp-card {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .ab-exp-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .ab-exp-meta {
+                align-items: flex-start;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+
+        /* ── Experience highlights list ── */
+        .ab-exp-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+            margin-bottom: 1.2rem;
+            padding: 1.2rem;
+            background: rgba(99,102,241,0.03);
+            border: 1px solid rgba(99,102,241,0.1);
+            border-radius: 12px;
+        }
+        .ab-exp-highlight {
+            display: flex;
+            gap: 0.9rem;
+            align-items: flex-start;
+        }
+        .ab-exp-highlight-icon {
+            width: 30px;
+            height: 30px;
+            min-width: 30px;
+            border-radius: 8px;
+            background: rgba(99,102,241,0.1);
+            border: 1px solid rgba(99,102,241,0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            color: #6366f1;
+            margin-top: 1px;
+        }
+        .ab-exp-highlight strong {
+            display: block;
+            font-size: 0.83rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.2rem;
+            letter-spacing: -0.01em;
+        }
+        .ab-exp-highlight p {
+            font-size: 0.8rem !important;
+            color: #475569 !important;
+            line-height: 1.65 !important;
+            margin: 0 !important;
+        }
+
+        /* ── Final premium polish pass ── */
+        body {
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+        .section-title {
+            letter-spacing: -0.015em;
+        }
+        .section-description,
+        .about-content p,
+        .service-card p,
+        .ab-exp-desc {
+            color: #334155 !important;
+        }
+        .about-section,
+        .services-section,
+        .ab-lifestyle-section,
+        .ab-experience-section,
+        .cta-section {
+            position: relative;
+        }
+        .about-section::after,
+        .services-section::after,
+        .ab-experience-section::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: min(92%, 1080px);
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(99,102,241,0.24), transparent);
+            pointer-events: none;
+        }
+        .ab-stat-card,
+        .service-card,
+        .ab-lifestyle-card,
+        .ab-exp-card {
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+        }
+        .ab-exp-card {
+            border-color: rgba(99,102,241,0.18);
+        }
+        .ab-exp-role {
+            font-size: 1.12rem;
+        }
+        .ab-exp-company-link {
+            color: #4f46e5;
+            font-weight: 700;
+        }
+        .ab-exp-highlights {
+            background: rgba(99,102,241,0.05);
+            border: 1px solid rgba(99,102,241,0.16);
+        }
+        .ab-exp-highlight-icon {
+            background: rgba(99,102,241,0.14);
+            border-color: rgba(99,102,241,0.26);
+        }
+        .ab-exp-highlight p {
+            color: #334155 !important;
+        }
+        .ab-exp-tag {
+            background: rgba(99,102,241,0.1);
+            border-color: rgba(99,102,241,0.24);
+            color: #3730a3;
+        }
+        .ab-exp-tag:hover {
+            background: rgba(99,102,241,0.2);
+        }
+        .btn-primary,
+        .btn-outline-primary,
+        .impact-cta,
+        .project-link,
+        .ab-tool-tag {
+            transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+        }
+        .btn-primary:hover,
+        .btn-outline-primary:hover,
+        .impact-cta:hover {
+            transform: translateY(-2px);
+        }
+        .btn-primary:focus-visible,
+        .btn-outline-primary:focus-visible,
+        .impact-cta:focus-visible,
+        .ab-exp-company-link:focus-visible,
+        .nav-link:focus-visible {
+            outline: 2px solid rgba(20,184,166,0.9);
+            outline-offset: 2px;
+            border-radius: 6px;
+        }
+        .footer p {
+            color: #dbe4f2 !important;
+            font-size: 0.92rem;
+            letter-spacing: 0.01em;
+        }
+        @media (max-width: 768px) {
+            .ab-exp-highlights {
+                padding: 1rem;
+            }
+            .ab-exp-highlight {
+                gap: 0.7rem;
+            }
+            .ab-exp-role {
+                font-size: 1.02rem;
+            }
+        }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -657,7 +1037,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="img/logo m-16.png" alt="Logo" width="90" height="auto">
+                <img src="img/juwaralogo.jpg" alt="Logo" width="90" height="auto">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -729,7 +1109,7 @@
                         <h3>Background & Education</h3>
                         <p>
                             I'm currently pursuing Software Development at ROC Mondriaan, where I'm building a solid foundation 
-                            in programming fundamentals, web development, and software engineering principles. My educational journey 
+                            in programming fundamentals, web development, and software development principles. My educational journey 
                             has equipped me with both theoretical knowledge and practical skills needed in today's tech industry.
                         </p>
                         <p>
@@ -795,6 +1175,197 @@
               <div class="ab-stat-label">Dedicated</div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ab-experience-section">
+      <div class="container">
+
+        <div class="row mb-5">
+          <div class="col-12 scroll-reveal">
+            <p class="ab-exp-eyebrow">Where I've worked</p>
+            <h2 class="ab-exp-title">Work <span class="ab-exp-grad">Experience</span></h2>
+          </div>
+        </div>
+
+        <div class="row g-4">
+
+          <!-- Anove International -->
+          <div class="col-12 scroll-reveal" data-delay="1">
+            <div class="ab-exp-card">
+              <div class="ab-exp-logo">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div class="ab-exp-body">
+
+                <div class="ab-exp-header">
+                  <div>
+                    <h3 class="ab-exp-role">Software Developer Intern</h3>
+                    <p class="ab-exp-company">
+                      <a href="https://www.anove.ai/nl" target="_blank" rel="noopener" class="ab-exp-company-link">
+                        Anove International B.V.
+                        <i class="fas fa-external-link-alt ab-exp-ext"></i>
+                      </a>
+                    </p>
+                  </div>
+                  <div class="ab-exp-meta">
+                    <span class="ab-exp-date"><i class="fas fa-calendar-alt"></i> Sep 2025 – Mar 2026</span>
+                    <span class="ab-exp-type">Internship · Den Haag</span>
+                  </div>
+                </div>
+
+                <p class="ab-exp-desc">
+                  Completed a 6-month full-stack internship at Anove International B.V. — a cybersecurity and
+                  compliance management company helping international clients navigate frameworks such as DORA,
+                  NIS2, GDPR, and MiCAR. Worked within an agile team of front-end and back-end developers,
+                  contributing to real projects across the full development lifecycle.
+                </p>
+
+                <div class="ab-exp-highlights">
+                  <div class="ab-exp-highlight">
+                    <span class="ab-exp-highlight-icon"><i class="fas fa-language"></i></span>
+                    <div>
+                      <strong>Multilingual Platform (i18n)</strong>
+                      <p>Implemented full internationalization across the Anove website in 5 languages — English, Dutch, French, German and Slovenian — using structured JSON translation files and a dynamic language switcher.</p>
+                    </div>
+                  </div>
+                  <div class="ab-exp-highlight">
+                    <span class="ab-exp-highlight-icon"><i class="fas fa-plug"></i></span>
+                    <div>
+                      <strong>API Connector — AIMS Application</strong>
+                      <p>Built an API connector linking the Anove platform to the AIMS app, configured Google Cloud IAM roles (BigQuery Data Viewer, Connector Admin, Vertex AI User) and handled secure data exchange between systems.</p>
+                    </div>
+                  </div>
+                  <div class="ab-exp-highlight">
+                    <span class="ab-exp-highlight-icon"><i class="fas fa-file-code"></i></span>
+                    <div>
+                      <strong>Technical Documentation</strong>
+                      <p>Wrote detailed technical documentation for the AIMS application and Anove websites, covering system structure, feature descriptions, and user guidance for both technical and non-technical audiences.</p>
+                    </div>
+                  </div>
+                  <div class="ab-exp-highlight">
+                    <span class="ab-exp-highlight-icon"><i class="fas fa-code-branch"></i></span>
+                    <div>
+                      <strong>Version Control & Collaboration</strong>
+                      <p>Worked daily with Git — managing feature branches (i18n-mo, mo-localization), writing clean commits, handling pull requests on GitHub, and resolving merge conflicts in a multi-developer codebase.</p>
+                    </div>
+                  </div>
+                  <div class="ab-exp-highlight">
+                    <span class="ab-exp-highlight-icon"><i class="fas fa-vial"></i></span>
+                    <div>
+                      <strong>Testing & QA</strong>
+                      <p>Performed cross-browser and responsive testing across Chrome, Firefox, Safari and Edge. Identified, documented and reported bugs to the lead developer to ensure consistent quality across all environments.</p>
+                    </div>
+                  </div>
+                  <div class="ab-exp-highlight">
+                    <span class="ab-exp-highlight-icon"><i class="fas fa-globe"></i></span>
+                    <div>
+                      <strong>Website Development (Webflow & Relume)</strong>
+                      <p>Built and updated pages on the Anove and YSherpa websites using Webflow and Relume's 1,700+ component library. Created wireframes for layout planning before visual development.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="ab-exp-tags">
+                  <span class="ab-exp-tag">Next.js</span>
+                  <span class="ab-exp-tag">Node.js</span>
+                  <span class="ab-exp-tag">i18n</span>
+                  <span class="ab-exp-tag">REST API</span>
+                  <span class="ab-exp-tag">Google Cloud IAM</span>
+                  <span class="ab-exp-tag">Git · GitHub</span>
+                  <span class="ab-exp-tag">Jira · Linear</span>
+                  <span class="ab-exp-tag">Webflow · Relume</span>
+                  <span class="ab-exp-tag">Cursor AI</span>
+                  <span class="ab-exp-tag">Agile · Scrum</span>
+                  <span class="ab-exp-tag">TypeScript</span>
+                  <span class="ab-exp-tag">Cybersecurity</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Blazter.nl -->
+          <div class="col-12 scroll-reveal" data-delay="2">
+            <div class="ab-exp-card">
+              <div class="ab-exp-logo">
+                <i class="fas fa-bolt"></i>
+              </div>
+              <div class="ab-exp-body">
+                <div class="ab-exp-header">
+                  <div>
+                    <h3 class="ab-exp-role">Software Developer Intern</h3>
+                    <p class="ab-exp-company">
+                      <a href="https://www.blazter.nl" target="_blank" rel="noopener" class="ab-exp-company-link">
+                        Blazter.nl
+                        <i class="fas fa-external-link-alt ab-exp-ext"></i>
+                      </a>
+                    </p>
+                  </div>
+                  <div class="ab-exp-meta">
+                    <span class="ab-exp-date"><i class="fas fa-calendar-alt"></i> Sep 2024 – Dec 2024</span>
+                    <span class="ab-exp-type">Internship · 10 weeks</span>
+                  </div>
+                </div>
+                <p class="ab-exp-desc">
+                    Worked as a Software Developer Intern at Blazter.nl, contributing to a
+                    gym management system built collaboratively as a team. The application
+                    was hosted and deployed on AWS (EC2) with AWS Linux. Development followed
+                    the SCRUM methodology with daily stand-up meetings, and the stack was
+                    built in PHP without a framework. Integrated API functionalities into the
+                    web application and contributed across both frontend and backend tasks.
+                </p>
+                <div class="ab-exp-tags">
+                    <span class="ab-exp-tag">PHP</span>
+                    <span class="ab-exp-tag">AWS EC2</span>
+                    <span class="ab-exp-tag">AWS Linux</span>
+                    <span class="ab-exp-tag">REST API</span>
+                    <span class="ab-exp-tag">SCRUM</span>
+                    <span class="ab-exp-tag">Daily Stand-up</span>
+                    <span class="ab-exp-tag">Git</span>
+                    <span class="ab-exp-tag">Team Development</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education -->
+          <div class="col-12 scroll-reveal" data-delay="3">
+            <div class="ab-exp-card ab-exp-card--edu">
+              <div class="ab-exp-logo ab-exp-logo--edu">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div class="ab-exp-body">
+                <div class="ab-exp-header">
+                  <div>
+                    <h3 class="ab-exp-role">Software Development</h3>
+                    <p class="ab-exp-company">
+                      <span class="ab-exp-company-link">ROC Mondriaan</span>
+                    </p>
+                  </div>
+                  <div class="ab-exp-meta">
+                    <span class="ab-exp-date"><i class="fas fa-calendar-alt"></i> 2022 – Present</span>
+                    <span class="ab-exp-type ab-exp-type--edu">Education</span>
+                  </div>
+                </div>
+                <p class="ab-exp-desc">
+                  Pursuing a Software Development degree at ROC Mondriaan, building a strong foundation in
+                  full-stack web development, object-oriented programming, database design, and agile
+                  methodologies. Completed multiple team and individual projects across frontend, backend,
+                  and game development.
+                </p>
+                <div class="ab-exp-tags">
+                  <span class="ab-exp-tag">HTML · CSS · JS</span>
+                  <span class="ab-exp-tag">PHP · Symfony</span>
+                  <span class="ab-exp-tag">Java</span>
+                  <span class="ab-exp-tag">MySQL</span>
+                  <span class="ab-exp-tag">React · Vue</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
